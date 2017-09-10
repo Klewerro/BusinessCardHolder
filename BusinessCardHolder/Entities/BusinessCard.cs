@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessCardHolder.Entities
 {
-    class BusinessCard
+    public class BusinessCard
     {
         public BusinessCard()
         {

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessCardHolder", "BusinessCardHolder\BusinessCardHolder.csproj", "{A005B274-FD32-4954-BCFA-C3481EA9FEAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessCardHolder.Domain", "BusinessCardHolder\BusinessCardHolder.Domain.csproj", "{A005B274-FD32-4954-BCFA-C3481EA9FEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessCardHolder.Forms", "BusinessCardHolder.Forms\BusinessCardHolder.Forms.csproj", "{78BF89DF-10B7-4A86-A371-94C8E829797B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A005B274-FD32-4954-BCFA-C3481EA9FEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A005B274-FD32-4954-BCFA-C3481EA9FEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A005B274-FD32-4954-BCFA-C3481EA9FEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BF89DF-10B7-4A86-A371-94C8E829797B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BF89DF-10B7-4A86-A371-94C8E829797B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BF89DF-10B7-4A86-A371-94C8E829797B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BF89DF-10B7-4A86-A371-94C8E829797B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
