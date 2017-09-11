@@ -4,25 +4,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessCardHolder.Entities
 {
-    public class BusinessCard
+    public class Firm
     {
-        public BusinessCard()
+        public Firm()
         {
             this.Employees = new List<Person>();
         }
 
-        [Key]
-        [ForeignKey("Address")]
-        public int BusinessCardId { get; set; }
-
-        [MaxLength(50), Required]
+        public int FirmId { get; set; }
         public string Name { get; set; }    //Nazwa
         public List<Person> Employees { get; set; }
 
-        //public int AddressId { get; set; }
-        public Address Address { get; set; }
+        //Address
+        public string City { get; set; }
+        public string Street { get; set; }
+        public int Number { get; set; }
+        public string Zip { get; set; }
 
-        
 
     }
 }

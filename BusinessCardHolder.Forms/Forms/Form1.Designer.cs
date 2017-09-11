@@ -1,16 +1,16 @@
-﻿namespace BusinessCardHolder.Forms
+﻿namespace BusinessCardHolder.Forms.Forms
 {
     partial class Form1
     {
         /// <summary>
-        /// Wymagana zmienna projektanta.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Wyczyść wszystkie używane zasoby.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">prawda, jeżeli zarządzane zasoby powinny zostać zlikwidowane; Fałsz w przeciwnym wypadku.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Kod generowany przez Projektanta formularzy systemu Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Wymagana metoda obsługi projektanta — nie należy modyfikować 
-        /// zawartość tej metody z edytorem kodu.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -36,4 +36,3 @@
         #endregion
     }
 }
-

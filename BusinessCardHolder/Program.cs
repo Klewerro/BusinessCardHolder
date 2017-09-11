@@ -1,6 +1,7 @@
 ﻿using BusinessCardHolder.Entities;
 using System;
 using System.Threading;
+using BusinessCardHolder.Actions;
 
 namespace BusinessCardHolder
 {
@@ -8,22 +9,27 @@ namespace BusinessCardHolder
     {
         static void Main(string[] args)
         {
-            
+            using (var db = new BusinessCardContext())
+            {
+                db.Firm.Add(new Firm()
+                {
+                    Name = "Zeto",
+                    City = "Rzeszow",
+                    Street = "Kopisto",
+                    Number = 8,
+                    Zip = "35-350"
+                });
+                db.Person.Add(new Person() { Name = "Grzegorz" });
+
+                db.SaveChanges();
+            }
         }
 
         public static void DbInit()
         {
             using (var db = new BusinessCardContext())
             {
-                Address address = new Address() { City = "Rzeszów", Street = "Dąbrowskiego", Number = 10 };
-                BusinessCard card = new BusinessCard() { Name = "Comarch", Address = address };
-                Person person = new Person() { Name = "Grzegorz" };
-                card.Employees.Add(person);
-                db.BusinessCard.Add(card);
-                db.SaveChanges();
-
-                Console.WriteLine("DB Initializated");
-                Thread.Sleep(2000);
+               
             }
         }
 

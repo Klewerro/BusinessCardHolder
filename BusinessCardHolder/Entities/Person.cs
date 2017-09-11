@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessCardHolder.Entities
 {
-    class Person
+    public class Person
     {
         [Key]
         public int PersonId { get; set; }
