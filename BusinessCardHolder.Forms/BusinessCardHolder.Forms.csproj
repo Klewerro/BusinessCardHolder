@@ -52,16 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FirmForm.cs">
+    <Compile Include="Actions\Firm.cs" />
+    <Compile Include="Forms\Firm\AddFirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FirmForm.Designer.cs">
+    <Compile Include="Forms\Firm\AddFirmForm.Designer.cs">
+      <DependentUpon>AddFirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Firm\FirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Firm\FirmForm.Designer.cs">
       <DependentUpon>FirmForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FirmsForm.cs">
+    <Compile Include="Forms\Firm\FirmsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FirmsForm.Designer.cs">
+    <Compile Include="Forms\Firm\FirmsForm.Designer.cs">
       <DependentUpon>FirmsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form1.cs">
@@ -82,21 +89,24 @@
     <Compile Include="Forms\MDIParent.Designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PersonForm.cs">
+    <Compile Include="Forms\Person\PersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PersonForm.Designer.cs">
+    <Compile Include="Forms\Person\PersonForm.Designer.cs">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PersonsForm.cs">
+    <Compile Include="Forms\Person\PersonsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PersonsForm.Designer.cs">
+    <Compile Include="Forms\Person\PersonsForm.Designer.cs">
       <DependentUpon>PersonsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FirmsForm.resx">
+    <EmbeddedResource Include="Forms\Firm\AddFirmForm.resx">
+      <DependentUpon>AddFirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Firm\FirmsForm.resx">
       <DependentUpon>FirmsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form2.resx">
@@ -135,5 +145,6 @@
       <Name>BusinessCardHolder.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

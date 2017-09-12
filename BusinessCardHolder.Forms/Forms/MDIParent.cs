@@ -73,12 +73,23 @@ namespace BusinessCardHolder.Forms.Forms
             this.LayoutMdi(MdiLayout.ArrangeIcons);
         }
 
+        FirmsForm firmsForm;
         private void firmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FirmsForm f = new FirmsForm();
-            f.MdiParent = this;
-            f.FormClosed += new FormClosedEventHandler(f2_FormClosed);
-            f.Show();
+            if (firmsForm == null)
+            {
+                firmsForm = new FirmsForm();
+                firmsForm.MdiParent = this;
+                firmsForm.FormClosed += new FormClosedEventHandler(firmsForm_FormClosed);
+                firmsForm.Show();
+            }
+            else
+                firmsForm.Activate();   
+        }
+        private void firmsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            firmsForm = null;
         }
     }
 }
+
