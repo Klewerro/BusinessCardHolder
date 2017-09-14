@@ -52,23 +52,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\Firm.cs" />
-    <Compile Include="Forms\Firm\AddFirmForm.cs">
+    <Compile Include="Actions\FirmActions.cs" />
+    <Compile Include="Forms\FirmForms\AddFirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Firm\AddFirmForm.Designer.cs">
+    <Compile Include="Forms\FirmForms\AddFirmForm.Designer.cs">
       <DependentUpon>AddFirmForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Firm\FirmForm.cs">
+    <Compile Include="Forms\FirmForms\EditFirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Firm\FirmForm.Designer.cs">
+    <Compile Include="Forms\FirmForms\EditFirmForm.Designer.cs">
+      <DependentUpon>EditFirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FirmForms\FirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FirmForms\FirmForm.Designer.cs">
       <DependentUpon>FirmForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Firm\FirmsForm.cs">
+    <Compile Include="Forms\FirmForms\FirmsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Firm\FirmsForm.Designer.cs">
+    <Compile Include="Forms\FirmForms\FirmsForm.Designer.cs">
       <DependentUpon>FirmsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form1.cs">
@@ -103,10 +109,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Firm\AddFirmForm.resx">
+    <EmbeddedResource Include="Forms\FirmForms\AddFirmForm.resx">
       <DependentUpon>AddFirmForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Firm\FirmsForm.resx">
+    <EmbeddedResource Include="Forms\FirmForms\EditFirmForm.resx">
+      <DependentUpon>EditFirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FirmForms\FirmsForm.resx">
       <DependentUpon>FirmsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form2.resx">

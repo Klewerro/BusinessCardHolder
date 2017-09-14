@@ -12,6 +12,8 @@ namespace BusinessCardHolder.Forms.Forms
 {
     public partial class MDIParent : Form
     {
+        FirmsForm firmsForm;
+
         public MDIParent()
         {
             InitializeComponent();
@@ -73,7 +75,7 @@ namespace BusinessCardHolder.Forms.Forms
             this.LayoutMdi(MdiLayout.ArrangeIcons);
         }
 
-        FirmsForm firmsForm;
+        
         private void firmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (firmsForm == null)

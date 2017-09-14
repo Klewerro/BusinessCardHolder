@@ -12,6 +12,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 {
     public partial class AddFirmForm : Form
     {
+
         public AddFirmForm()
         {
             InitializeComponent();
@@ -23,25 +24,32 @@ namespace BusinessCardHolder.Forms.Forms.Firm
             
         }
 
-        private void button_Add_Click(object sender, EventArgs e)
+        public void button_Add_Click(object sender, EventArgs e)
         {
             try
             {
-                Actions.Firm firm = new Actions.Firm();
+                Actions.FirmActions firm = new Actions.FirmActions();
                 firm.Add(textBox_Name.Text.ToString(), textBox_City.Text.ToString(), textBox_Street.Text.ToString(), int.Parse(textBox_Number.Text), textBox_Zip.Text.ToString());
+
             } catch(FormatException ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActiveForm.Show();
-            } 
-
+            }
                 ActiveForm.Close();
+
         }
 
-        private void button_Cancel_Click(object sender, EventArgs e)
+        public void button_Cancel_Click(object sender, EventArgs e)
         {
             ActiveForm.Close();
         }
 
+        private void AddFirmForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        
     }
 }

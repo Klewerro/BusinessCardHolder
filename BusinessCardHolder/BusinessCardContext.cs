@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace BusinessCardHolder
 {
-    public class BusinessCardContext :DbContext
+   /// <summary>
+   /// Class using to take connection with DB
+   /// </summary>
+   public class BusinessCardContext :DbContext
     {
         public BusinessCardContext() :base("BusinessCardDb")
         {

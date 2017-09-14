@@ -161,6 +161,7 @@
             this.Controls.Add(this.textBox_Name);
             this.Name = "AddFirmForm";
             this.Text = "Add Firm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFirmForm_FormClosing);
             this.Load += new System.EventHandler(this.AddFirmForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

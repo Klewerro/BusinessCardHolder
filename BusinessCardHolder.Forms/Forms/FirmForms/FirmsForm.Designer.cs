@@ -38,6 +38,7 @@
             this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Refresh = new System.Windows.Forms.Button();
             this.button_RemoveFirm = new System.Windows.Forms.Button();
             this.button_EditFirm = new System.Windows.Forms.Button();
             this.button_AddFirm = new System.Windows.Forms.Button();
@@ -109,15 +110,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_Refresh);
             this.groupBox1.Controls.Add(this.button_RemoveFirm);
             this.groupBox1.Controls.Add(this.button_EditFirm);
             this.groupBox1.Controls.Add(this.button_AddFirm);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 201);
+            this.groupBox1.Size = new System.Drawing.Size(200, 252);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actions";
+            // 
+            // button_Refresh
+            // 
+            this.button_Refresh.Location = new System.Drawing.Point(6, 195);
+            this.button_Refresh.Name = "button_Refresh";
+            this.button_Refresh.Size = new System.Drawing.Size(188, 39);
+            this.button_Refresh.TabIndex = 3;
+            this.button_Refresh.Text = "Refresh table";
+            this.button_Refresh.UseVisualStyleBackColor = true;
+            this.button_Refresh.Click += new System.EventHandler(this.button_Refresh_Click);
             // 
             // button_RemoveFirm
             // 
@@ -127,6 +139,7 @@
             this.button_RemoveFirm.TabIndex = 2;
             this.button_RemoveFirm.Text = "Remove Firm";
             this.button_RemoveFirm.UseVisualStyleBackColor = true;
+            this.button_RemoveFirm.Click += new System.EventHandler(this.button_RemoveFirm_Click);
             // 
             // button_EditFirm
             // 
@@ -157,6 +170,7 @@
             this.Controls.Add(this.dataGridView_Firms);
             this.Name = "FirmsForm";
             this.Text = "FirmsForm";
+            this.Load += new System.EventHandler(this.FirmsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Firms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -180,5 +194,6 @@
         private System.Windows.Forms.Button button_RemoveFirm;
         private System.Windows.Forms.Button button_EditFirm;
         private System.Windows.Forms.Button button_AddFirm;
+        private System.Windows.Forms.Button button_Refresh;
     }
 }

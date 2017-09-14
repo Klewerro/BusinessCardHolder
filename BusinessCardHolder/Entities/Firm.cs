@@ -11,6 +11,15 @@ namespace BusinessCardHolder.Entities
             this.Employees = new List<Person>();
         }
 
+        public Firm(string name, string city, string street, int number, string zip)
+        {
+            this.Name = name;
+            this.City = city;
+            this.Street = street;
+            this.Number = number;
+            this.Zip = zip;
+        }
+
         public int FirmId { get; set; }
         public string Name { get; set; }    //Nazwa
         public List<Person> Employees { get; set; }
