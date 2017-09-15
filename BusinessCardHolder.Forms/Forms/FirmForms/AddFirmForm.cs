@@ -12,7 +12,6 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 {
     public partial class AddFirmForm : Form
     {
-
         public AddFirmForm()
         {
             InitializeComponent();
@@ -34,15 +33,17 @@ namespace BusinessCardHolder.Forms.Forms.Firm
             } catch(FormatException ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ActiveForm.Show();
+                //ActiveForm.Show();
             }
-                ActiveForm.Close();
+            ActiveForm.Close();
+            //ActiveMdiChild.Close();
 
         }
 
         public void button_Cancel_Click(object sender, EventArgs e)
         {
-            ActiveForm.Close();
+            //ActiveForm.Close();
+            ActiveMdiChild.Close();
         }
 
         private void AddFirmForm_FormClosing(object sender, FormClosingEventArgs e)

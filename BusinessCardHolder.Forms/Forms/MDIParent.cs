@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessCardHolder.Forms.Forms.Firm;
+using System;
 using System.Windows.Forms;
 
 namespace BusinessCardHolder.Forms.Forms
@@ -41,7 +35,6 @@ namespace BusinessCardHolder.Forms.Forms
             else
                 f2.Activate();
         }
-
         private void f2_FormClosed(object sender, FormClosedEventArgs e)
         {
             f2 = null;

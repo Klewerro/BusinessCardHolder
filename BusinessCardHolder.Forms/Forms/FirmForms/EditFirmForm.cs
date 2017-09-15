@@ -31,6 +31,8 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 
         private void button_Edit_Click(object sender, System.EventArgs e)
         {
+            Entities.Firm editedFirm = new Entities.Firm();
+
             firmActions.Edit(firmId, textBox_Name.Text, textBox_City.Text, textBox_Street.Text, int.Parse(textBox_Number.Text), textBox_Zip.Text);
             ActiveForm.Close();
         }
