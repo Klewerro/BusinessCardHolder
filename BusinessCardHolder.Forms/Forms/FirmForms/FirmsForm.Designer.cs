@@ -42,6 +42,7 @@
             this.button_RemoveFirm = new System.Windows.Forms.Button();
             this.button_EditFirm = new System.Windows.Forms.Button();
             this.button_AddFirm = new System.Windows.Forms.Button();
+            this.button_Nuke = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Firms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -170,11 +171,22 @@
             this.button_AddFirm.UseVisualStyleBackColor = true;
             this.button_AddFirm.Click += new System.EventHandler(this.button_AddFirm_Click);
             // 
+            // button_Nuke
+            // 
+            this.button_Nuke.Location = new System.Drawing.Point(34, 495);
+            this.button_Nuke.Name = "button_Nuke";
+            this.button_Nuke.Size = new System.Drawing.Size(140, 23);
+            this.button_Nuke.TabIndex = 2;
+            this.button_Nuke.Text = "TACTICAL NUKE";
+            this.button_Nuke.UseVisualStyleBackColor = true;
+            this.button_Nuke.Click += new System.EventHandler(this.button_Nuke_Click);
+            // 
             // FirmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 561);
+            this.Controls.Add(this.button_Nuke);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView_Firms);
             this.Name = "FirmsForm";
@@ -204,5 +216,6 @@
         private System.Windows.Forms.Button button_EditFirm;
         private System.Windows.Forms.Button button_AddFirm;
         private System.Windows.Forms.Button button_Refresh;
+        private System.Windows.Forms.Button button_Nuke;
     }
 }

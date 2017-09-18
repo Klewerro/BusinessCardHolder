@@ -83,12 +83,29 @@ namespace BusinessCardHolder.Forms.Forms
 
         private int GetFirmIdFromTable(int indexPop)
         {
-            int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
-            //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
-            return int.Parse(dataGridView_Firms.Rows[rowindex].Cells[indexPop].Value.ToString());
+            int result = 0;
+
+            try
+            {
+                int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
+                //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
+                result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[indexPop].Value.ToString());
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return result;
         }
 
-
+        private void button_Nuke_Click(object sender, EventArgs e)
+        {
+            DialogResult messageBox = MessageBox.Show("Are you sure?\nAll firms in database will be Removed", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(messageBox == DialogResult.Yes)
+            {
+                firmActions.Nuke();
+                MessageBox.Show("Done");
+            }
+        }
     }
 }
 

@@ -3,6 +3,7 @@ using System.Linq;
 using BusinessCardHolder.Entities;
 using System.Windows.Forms;
 using System;
+using System.Data.Entity;
 
 namespace BusinessCardHolder.Forms.Actions
 {
@@ -106,6 +107,22 @@ namespace BusinessCardHolder.Forms.Actions
             }
         }
 
+        /// <summary>
+        /// Deleting whole Table (WARNING: This action won't be able to see in logs!)
+        /// </summary>
+        /// <param name="tableName"></param>
+        public void Nuke()
+        {
+            using(var context = new BusinessCardContext())
+            {
+                context.Firm.RemoveRange(context.Firm);
+                context.Person.RemoveRange(context.Person);
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('Firms', RESEED, 0)");  //reseting id's
+                //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('Person', RESEED, 0)");
+            }
+        }
+
         public bool CheckIfExist(int idProp)
         {
             using(var context = new BusinessCardContext())
@@ -118,5 +135,8 @@ namespace BusinessCardHolder.Forms.Actions
                 else return false;
             }
         }
+
+        
+
     }
 }
