@@ -49,6 +49,8 @@
             // 
             // dataGridView_Firms
             // 
+            this.dataGridView_Firms.AllowUserToAddRows = false;
+            this.dataGridView_Firms.AllowUserToDeleteRows = false;
             this.dataGridView_Firms.AllowUserToOrderColumns = true;
             this.dataGridView_Firms.AutoGenerateColumns = false;
             this.dataGridView_Firms.BackgroundColor = System.Drawing.Color.White;
@@ -64,6 +66,7 @@
             this.dataGridView_Firms.Location = new System.Drawing.Point(226, 12);
             this.dataGridView_Firms.MultiSelect = false;
             this.dataGridView_Firms.Name = "dataGridView_Firms";
+            this.dataGridView_Firms.ReadOnly = true;
             this.dataGridView_Firms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Firms.Size = new System.Drawing.Size(644, 537);
             this.dataGridView_Firms.TabIndex = 0;
@@ -73,36 +76,42 @@
             this.firmIdDataGridViewTextBoxColumn.DataPropertyName = "FirmId";
             this.firmIdDataGridViewTextBoxColumn.HeaderText = "FirmId";
             this.firmIdDataGridViewTextBoxColumn.Name = "firmIdDataGridViewTextBoxColumn";
+            this.firmIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cityDataGridViewTextBoxColumn
             // 
             this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
             this.cityDataGridViewTextBoxColumn.HeaderText = "City";
             this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // streetDataGridViewTextBoxColumn
             // 
             this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
             this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
             this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
+            this.streetDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // numberDataGridViewTextBoxColumn
             // 
             this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
             this.numberDataGridViewTextBoxColumn.HeaderText = "Number";
             this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zipDataGridViewTextBoxColumn
             // 
             this.zipDataGridViewTextBoxColumn.DataPropertyName = "Zip";
             this.zipDataGridViewTextBoxColumn.HeaderText = "Zip";
             this.zipDataGridViewTextBoxColumn.Name = "zipDataGridViewTextBoxColumn";
+            this.zipDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // firmBindingSource
             // 

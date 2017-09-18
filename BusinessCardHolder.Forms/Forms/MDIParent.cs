@@ -7,6 +7,7 @@ namespace BusinessCardHolder.Forms.Forms
     public partial class MDIParent : Form
     {
         FirmsForm firmsForm;
+        Form2 f2;
 
         public MDIParent()
         {
@@ -21,7 +22,7 @@ namespace BusinessCardHolder.Forms.Forms
             f1.Show();
         }
 
-        Form2 f2;
+        
         private void form2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

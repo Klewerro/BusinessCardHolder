@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\FirmActions.cs" />
     <Compile Include="Forms\FirmForms\AddFirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,16 +94,16 @@
     <Compile Include="Forms\MDIParent.Designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Person\PersonForm.cs">
+    <Compile Include="Forms\PersonForms\PersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Person\PersonForm.Designer.cs">
+    <Compile Include="Forms\PersonForms\PersonForm.Designer.cs">
       <DependentUpon>PersonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Person\PersonsForm.cs">
+    <Compile Include="Forms\PersonForms\PersonsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Person\PersonsForm.Designer.cs">
+    <Compile Include="Forms\PersonForms\PersonsForm.Designer.cs">
       <DependentUpon>PersonsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

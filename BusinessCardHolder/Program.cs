@@ -1,7 +1,6 @@
 ﻿using BusinessCardHolder.Entities;
 using System;
 using System.Threading;
-using BusinessCardHolder.Actions;
 
 namespace BusinessCardHolder
 {

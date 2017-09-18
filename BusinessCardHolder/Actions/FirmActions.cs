@@ -20,9 +20,10 @@ namespace BusinessCardHolder.Forms.Actions
         {
             using (var context = new BusinessCardContext())
             {
-                var firms = from Firm in context.Firm
-                            select Firm;
-                return firms.ToList();
+                //var firms = from Firm in context.Firm
+                //            select Firm;
+                var firms2 = context.Firm.Select(n => n).ToList();
+                return firms2;
             }
         }
 

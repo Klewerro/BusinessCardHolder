@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using BusinessCardHolder.Actions;
 
 namespace BusinessCardHolder.Forms.Forms
 {
@@ -51,15 +50,20 @@ namespace BusinessCardHolder.Forms.Forms
         {
             int currentId = GetFirmIdFromTable(0);
             //Entities.Firm firm = firmActions.DownloadSingleFirmData(currentId);
-            
-           
-            
-            if(firmActions.CheckIfExist(currentId) == true)
+            var firm = firmActions.DownloadSingleFirmData(currentId);
+
+            DialogResult messageBox = MessageBox.Show("Are you sure you want remove firm"+ firm.Name + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(messageBox == DialogResult.Yes)
             {
-                firmActions.Remove(currentId);
-                MessageBox.Show("Ukończono", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (firmActions.CheckIfExist(currentId) == true)
+                {
+                    firmActions.Remove(currentId);
+                    MessageBox.Show(firm.Name +"(id: " + firm.FirmId + ")" + " was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else MessageBox.Show("No data record in database!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            else MessageBox.Show("Brak rekordu w bazie danych!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
         }
 
