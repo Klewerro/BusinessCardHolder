@@ -71,6 +71,7 @@
             this.dataGridView_Firms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Firms.Size = new System.Drawing.Size(644, 537);
             this.dataGridView_Firms.TabIndex = 0;
+            this.dataGridView_Firms.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_Firms_CellMouseDoubleClick);
             // 
             // firmIdDataGridViewTextBoxColumn
             // 

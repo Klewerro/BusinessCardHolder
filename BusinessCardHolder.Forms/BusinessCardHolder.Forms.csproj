@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FirmForms\AddEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FirmForms\AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FirmForms\AddFirmForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +114,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FirmForms\AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirmForms\AddFirmForm.resx">
       <DependentUpon>AddFirmForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirmForms\EditFirmForm.resx">
       <DependentUpon>EditFirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FirmForms\FirmForm.resx">
+      <DependentUpon>FirmForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FirmForms\FirmsForm.resx">
       <DependentUpon>FirmsForm.cs</DependentUpon>
@@ -134,6 +146,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BusinessCardHolder.Entities.Firm.datasource" />
+    <None Include="Properties\DataSources\BusinessCardHolder.Entities.Person.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

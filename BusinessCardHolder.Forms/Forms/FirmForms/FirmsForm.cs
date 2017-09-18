@@ -81,7 +81,7 @@ namespace BusinessCardHolder.Forms.Forms
 
         
 
-        private int GetFirmIdFromTable(int indexPop)
+        private int GetFirmIdFromTable(int columnIndex)
         {
             int result = 0;
 
@@ -89,8 +89,25 @@ namespace BusinessCardHolder.Forms.Forms
             {
                 int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
                 //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
-                result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[indexPop].Value.ToString());
+                result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[columnIndex].Value.ToString());
             } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return result;
+        }
+
+        private int GetFirmIdFromTable()
+        {
+            int result = 0;
+
+            try
+            {
+                int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
+                //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
+                result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -105,6 +122,14 @@ namespace BusinessCardHolder.Forms.Forms
                 firmActions.Nuke();
                 MessageBox.Show("Done");
             }
+        }
+
+        private void dataGridView_Firms_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //MessageBox.Show(GetFirmIdFromTable(dataGridView_Firms.CurrentCell.RowIndex).ToString());
+            Entities.Firm firm = firmActions.DownloadSingleFirmData(GetFirmIdFromTable());
+            var firmForm = new FirmForm(firm);
+            firmForm.Show();
         }
     }
 }
