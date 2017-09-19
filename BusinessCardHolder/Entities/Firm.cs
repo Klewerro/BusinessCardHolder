@@ -28,7 +28,7 @@ namespace BusinessCardHolder.Entities
         public string City { get; set; }
         public string Street { get; set; }
         public int Number { get; set; }
-        //[RegularExpression(@"^\d{2}(?:[-\s]\d{3})?$")]
+        [RegularExpression(@"^\d{2}(?:[-\s]\d{3})?$", ErrorMessage = "Wrong ZIP code format")]
         public string Zip { get; set; }
 
 

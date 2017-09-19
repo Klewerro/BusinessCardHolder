@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace BusinessCardHolder.Actions
 {
     /// <summary>
-    /// Contain methods using to operate on Firm table in database
+    /// Contain methods using to operate on Persons (with employees) table in database
     /// </summary>
-    class PersonActions
+    public class PersonActions
     {
         PersonActions()
         {

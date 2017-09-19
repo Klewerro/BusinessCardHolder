@@ -67,6 +67,18 @@
     <Compile Include="Migrations\201709180941335_PersonTable.Designer.cs">
       <DependentUpon>201709180941335_PersonTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709190705123_ZipRegularExpression.cs" />
+    <Compile Include="Migrations\201709190705123_ZipRegularExpression.Designer.cs">
+      <DependentUpon>201709190705123_ZipRegularExpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709190708388_ZipRegularExpression2.cs" />
+    <Compile Include="Migrations\201709190708388_ZipRegularExpression2.Designer.cs">
+      <DependentUpon>201709190708388_ZipRegularExpression2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709191316340_LiteralErrorForename.cs" />
+    <Compile Include="Migrations\201709191316340_LiteralErrorForename.Designer.cs">
+      <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +96,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709180941335_PersonTable.resx">
       <DependentUpon>201709180941335_PersonTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709190705123_ZipRegularExpression.resx">
+      <DependentUpon>201709190705123_ZipRegularExpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709190708388_ZipRegularExpression2.resx">
+      <DependentUpon>201709190708388_ZipRegularExpression2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709191316340_LiteralErrorForename.resx">
+      <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

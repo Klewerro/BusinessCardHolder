@@ -28,6 +28,8 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 
         private void button_Edit_Click(object sender, System.EventArgs e)
         {
+            
+
             Entities.Firm editedFirm = new Entities.Firm();
             try
             {

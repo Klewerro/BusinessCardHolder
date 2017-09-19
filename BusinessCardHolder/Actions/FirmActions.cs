@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BusinessCardHolder.Entities;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using System;
-using System.Data.Entity;
 
 namespace BusinessCardHolder.Forms.Actions
 {
@@ -67,7 +66,7 @@ namespace BusinessCardHolder.Forms.Actions
                     context.SaveChanges();
                 } catch(Exception ex)
                 {
-                    MessageBox.Show(ex.ToString() ,"Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show(ex.ToString() ,"Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                     
                 
@@ -102,7 +101,7 @@ namespace BusinessCardHolder.Forms.Actions
                     context.SaveChanges();
                 } catch(System.ArgumentNullException ex)
                 {
-                    MessageBox.Show("Brak rekordu w bazie danych!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Brak rekordu w bazie danych!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } 
             }
         }

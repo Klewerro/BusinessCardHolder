@@ -9,7 +9,7 @@ namespace BusinessCardHolder.Entities
         public int PersonId { get; set; }
 
         //[MaxLength(30)]
-        public string Forname { get; set; }
+        public string Forename { get; set; }
         //[MaxLength(30)]
         public string Name { get; set; }
         //[MaxLength(9), MinLength(7)]
