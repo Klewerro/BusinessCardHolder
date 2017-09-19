@@ -7,13 +7,13 @@ namespace BusinessCardHolder.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class SimplifyPerson : IMigrationMetadata
+    public sealed partial class ZipRegularExpression2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SimplifyPerson));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ZipRegularExpression2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709102038454_SimplifyPerson"; }
+            get { return "201709190708388_ZipRegularExpression2"; }
         }
         
         string IMigrationMetadata.Source

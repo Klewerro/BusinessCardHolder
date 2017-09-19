@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BusinessCardHolder.Forms
+namespace BusinessCardHolder.Forms.Forms
 {
-    public partial class Form1 : Form
+    public partial class PersonsForm : Form
     {
-        public Form1()
+        public PersonsForm()
         {
             InitializeComponent();
         }

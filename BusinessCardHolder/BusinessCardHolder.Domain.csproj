@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,17 +50,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\FirmActions.cs" />
+    <Compile Include="Actions\PersonActions.cs" />
     <Compile Include="BusinessCardContext.cs" />
-    <Compile Include="Entities\Address.cs" />
-    <Compile Include="Entities\BusinessCard.cs" />
+    <Compile Include="Entities\Firm.cs" />
     <Compile Include="Entities\Person.cs" />
-    <Compile Include="Migrations\201709102024165_FirstMigration.cs" />
-    <Compile Include="Migrations\201709102024165_FirstMigration.Designer.cs">
-      <DependentUpon>201709102024165_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201709111239136_abcd.cs" />
+    <Compile Include="Migrations\201709111239136_abcd.Designer.cs">
+      <DependentUpon>201709111239136_abcd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709102038454_SimplifyPerson.cs" />
-    <Compile Include="Migrations\201709102038454_SimplifyPerson.Designer.cs">
-      <DependentUpon>201709102038454_SimplifyPerson.cs</DependentUpon>
+    <Compile Include="Migrations\201709111242545_abcde.cs" />
+    <Compile Include="Migrations\201709111242545_abcde.Designer.cs">
+      <DependentUpon>201709111242545_abcde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709180941335_PersonTable.cs" />
+    <Compile Include="Migrations\201709180941335_PersonTable.Designer.cs">
+      <DependentUpon>201709180941335_PersonTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709190705123_ZipRegularExpression.cs" />
+    <Compile Include="Migrations\201709190705123_ZipRegularExpression.Designer.cs">
+      <DependentUpon>201709190705123_ZipRegularExpression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709190708388_ZipRegularExpression2.cs" />
+    <Compile Include="Migrations\201709190708388_ZipRegularExpression2.Designer.cs">
+      <DependentUpon>201709190708388_ZipRegularExpression2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709191316340_LiteralErrorForename.cs" />
+    <Compile Include="Migrations\201709191316340_LiteralErrorForename.Designer.cs">
+      <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -70,11 +88,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709102024165_FirstMigration.resx">
-      <DependentUpon>201709102024165_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709111239136_abcd.resx">
+      <DependentUpon>201709111239136_abcd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709102038454_SimplifyPerson.resx">
-      <DependentUpon>201709102038454_SimplifyPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709111242545_abcde.resx">
+      <DependentUpon>201709111242545_abcde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709180941335_PersonTable.resx">
+      <DependentUpon>201709180941335_PersonTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709190705123_ZipRegularExpression.resx">
+      <DependentUpon>201709190705123_ZipRegularExpression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709190708388_ZipRegularExpression2.resx">
+      <DependentUpon>201709190708388_ZipRegularExpression2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709191316340_LiteralErrorForename.resx">
+      <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
