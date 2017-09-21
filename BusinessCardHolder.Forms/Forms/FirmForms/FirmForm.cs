@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessCardHolder.Actions;
 
 namespace BusinessCardHolder.Forms.Forms
 {
@@ -16,7 +17,7 @@ namespace BusinessCardHolder.Forms.Forms
         private Actions.FirmActions firmActions;
         private Entities.Firm firm;
         private Entities.Person employee;
-        private Actions.PersonActions personActions;
+        private PersonActions personActions;
 
         public FirmForm()
         {
