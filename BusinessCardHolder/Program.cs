@@ -47,7 +47,7 @@ namespace BusinessCardHolder
 
 
             firmAndPersonActions.CreateNewFirmAndNewPerson(f1, p1);
-            personActions.AddNewPersonToFirm(p2, f1.FirmId);
+            personActions.CreatePersonAndAddToFirm(p2, f1.FirmId);
             //personActions.DownloadPersonsForFirm(f2);
             //Person person = personActions.DownloadSinglePerson("Mol");
             //Console.WriteLine(person.Name);

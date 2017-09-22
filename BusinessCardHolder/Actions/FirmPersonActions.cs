@@ -22,10 +22,10 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void RemoveFirmAndEmployees(int firmIdProp)
+        public void DeleteFirmAndEmployees(int firmIdProp)
         {
-            personActions.RemoveAllEmployeesFromFirm(firmIdProp);
-            firmActions.Remove(firmIdProp);
+            personActions.DeleteAllEmployeesFromFirm(firmIdProp);
+            firmActions.DeleteFirm(firmIdProp);
         }
 
 

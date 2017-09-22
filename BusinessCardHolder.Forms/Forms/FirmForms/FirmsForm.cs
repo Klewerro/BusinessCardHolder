@@ -19,7 +19,7 @@ namespace BusinessCardHolder.Forms.Forms
 
         private void FirmsForm_Load(object sender, EventArgs e)
         {  
-            dataGridView_Firms.DataSource = firmActions.DownloadFirmDataIntoList();
+            dataGridView_Firms.DataSource = firmActions.ReadAllFirms();
         }
 
         
@@ -40,7 +40,7 @@ namespace BusinessCardHolder.Forms.Forms
         {
             
             int currentId = GetFirmIdFromTable(0);
-            Entities.Firm firm = firmActions.DownloadSingleFirmData(currentId);
+            Entities.Firm firm = firmActions.ReadFirm(currentId);
 
             var editFirmForm = new EditFirmForm(firm);
             editFirmForm.Show();
@@ -50,14 +50,14 @@ namespace BusinessCardHolder.Forms.Forms
         {
             int currentId = GetFirmIdFromTable(0);
             //Entities.Firm firm = firmActions.DownloadSingleFirmData(currentId);
-            var firm = firmActions.DownloadSingleFirmData(currentId);
+            var firm = firmActions.ReadFirm(currentId);
 
             DialogResult messageBox = MessageBox.Show("Are you sure you want remove firm"+ firm.Name + " ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(messageBox == DialogResult.Yes)
             {
-                if (firmActions.CheckIfExist(currentId) == true)
+                if (firmActions.CheckIfFirmExist(currentId) == true)
                 {
-                    firmActions.Remove(currentId);
+                    firmActions.DeleteFirm(currentId);
                     MessageBox.Show(firm.Name +"(id: " + firm.FirmId + ")" + " was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else MessageBox.Show("No data record in database!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,12 +71,12 @@ namespace BusinessCardHolder.Forms.Forms
         {
             //ReloadTable();
             //dataGridView_Firms.Update();
-            dataGridView_Firms.DataSource = firmActions.DownloadFirmDataIntoList();
+            dataGridView_Firms.DataSource = firmActions.ReadAllFirms();
         }
         
         public void ReloadTable()
         {
-            dataGridView_Firms.DataSource = firmActions.DownloadFirmDataIntoList();
+            dataGridView_Firms.DataSource = firmActions.ReadAllFirms();
         }
 
         
@@ -119,7 +119,7 @@ namespace BusinessCardHolder.Forms.Forms
             DialogResult messageBox = MessageBox.Show("Are you sure?\nAll firms in database will be Removed", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(messageBox == DialogResult.Yes)
             {
-                firmActions.Nuke();
+                firmActions.NukeFirms();
                 MessageBox.Show("Done");
             }
         }
@@ -127,7 +127,7 @@ namespace BusinessCardHolder.Forms.Forms
         private void dataGridView_Firms_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //MessageBox.Show(GetFirmIdFromTable(dataGridView_Firms.CurrentCell.RowIndex).ToString());
-            Entities.Firm firm = firmActions.DownloadSingleFirmData(GetFirmIdFromTable());
+            Entities.Firm firm = firmActions.ReadFirm(GetFirmIdFromTable());
             var firmForm = new FirmForm(firm);
             firmForm.Show();
         }

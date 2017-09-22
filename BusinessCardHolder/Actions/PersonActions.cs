@@ -8,7 +8,7 @@ using BusinessCardHolder.Entities;
 namespace BusinessCardHolder.Actions
 {
     /// <summary>
-    /// Contain methods using to operate on Persons (with employees) table in database
+    /// Contain CRUD(create, read, update and delete) methods using to operate on Persons (Employees) table in database
     /// </summary>
     public class PersonActions
     {
@@ -16,7 +16,11 @@ namespace BusinessCardHolder.Actions
         {
         }
 
-        public List<Person> DownloadAllPersonsIntoList()
+        /// <summary>
+        /// Reading all persons from database
+        /// </summary>
+        /// <returns>Returning persons into List</returns>
+        public List<Person> ReadPersons()
         {
             using (var context = new BusinessCardContext())
             {
@@ -25,7 +29,12 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public Person DownloadSinglePerson(int idProp)
+        /// <summary>
+        /// Reading single person from database
+        /// </summary>
+        /// <param name="idProp">Id of person</param>
+        /// <returns></returns>
+        public Person ReadPerson(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -33,7 +42,12 @@ namespace BusinessCardHolder.Actions
                     return person;
             }
         }
-        public Person DownloadSinglePerson(string nameProp)
+        /// <summary>
+        /// Reading single person from database
+        /// </summary>
+        /// <param name="nameProp">Name of person</param>
+        /// <returns></returns>
+        public Person ReadPerson(string nameProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -42,7 +56,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public List<Person> DownloadPersonsForFirm(Firm firmProp)
+        public List<Person> ReadPersonsForFirm(Firm firmProp)
         {
             using (var context = new BusinessCardContext())
             {
@@ -53,7 +67,7 @@ namespace BusinessCardHolder.Actions
         }
 
 
-        public void Add(string forename, string name, string phone, string cellPhone, string email, DateTime birthDate)
+        public void CreatePerson(string forename, string name, string phone, string cellPhone, string email, DateTime birthDate)
         {
             Person person = new Person()
             {
@@ -72,7 +86,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void Add(Person personProp)
+        public void CreatePerson(Person personProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -80,8 +94,8 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-
-        public void AddNewPersonToFirm(Person personProp, int firmIdProp)
+        
+        public void CreatePersonAndAddToFirm(Person personProp, int firmIdProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -103,7 +117,6 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-
         public void AddExistingPersonToFirm(string personNameProp, string firmNameProp)
         {
             using(var context = new BusinessCardContext())
@@ -114,7 +127,6 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-
         public void AddExistingPersonToFirm(Person personProp, Firm firmProp)
         {
             using(var context = new BusinessCardContext())
@@ -126,7 +138,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void RemovePerson(string nameProp)
+        public void DeletePerson(string nameProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -135,7 +147,7 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-        public void RemovePerson(int idProp)
+        public void DeletePerson(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -145,7 +157,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void RemovePersonsRange(List<Person> personsList)
+        public void DeletePersonsRange(List<Person> personsList)
         {
             using(var context = new BusinessCardContext())
             {
@@ -154,7 +166,7 @@ namespace BusinessCardHolder.Actions
             }
         }
         
-        public void RemoveAllEmployeesFromFirm(Firm firmProp)
+        public void DeleteAllEmployeesFromFirm(Firm firmProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -164,7 +176,7 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-        public void RemoveAllEmployeesFromFirm(int idProp)
+        public void DeleteAllEmployeesFromFirm(int idProp)
         {
             using (var context = new BusinessCardContext())
             {

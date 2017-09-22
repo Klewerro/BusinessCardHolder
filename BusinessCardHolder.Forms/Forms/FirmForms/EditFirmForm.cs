@@ -40,7 +40,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 
                 } else
                 {
-                    firmActions.Edit(firmId, textBox_Name.Text, textBox_City.Text, textBox_Street.Text, int.Parse(textBox_Number.Text), textBox_Zip.Text);
+                    firmActions.UpdateFirm(firmId, textBox_Name.Text, textBox_City.Text, textBox_Street.Text, int.Parse(textBox_Number.Text), textBox_Zip.Text);
                     ActiveForm.Close();
                 }
             }

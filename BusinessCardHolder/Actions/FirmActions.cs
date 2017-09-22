@@ -16,7 +16,7 @@ namespace BusinessCardHolder.Actions
         {
         }
 
-        public List<Firm> DownloadFirmDataIntoList()
+        public List<Firm> ReadAllFirms()
         {
             using (var context = new BusinessCardContext())
             {
@@ -27,7 +27,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public Firm DownloadSingleFirmData(int idProp)
+        public Firm ReadFirm(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -37,7 +37,7 @@ namespace BusinessCardHolder.Actions
             }
             
         }
-        public Firm DownloadSingleFirmData(string nameProp)
+        public Firm ReadFirm(string nameProp)
         {
             using (var context = new BusinessCardContext())
             {
@@ -48,7 +48,7 @@ namespace BusinessCardHolder.Actions
 
         }
 
-        public void Add(string name, string city, string street, int number, string zip)
+        public void CreateFirm(string name, string city, string street, int number, string zip)
         {
             using (var context = new BusinessCardContext())
             {
@@ -59,7 +59,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void Edit(int firmId, string name, string city, string street, int number, string zip)
+        public void UpdateFirm(int firmId, string name, string city, string street, int number, string zip)
         {
             using (var context = new BusinessCardContext())
             {
@@ -82,7 +82,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void Edit(Firm firmProp)
+        public void UpdateFirm(Firm firmProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -97,7 +97,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void Remove(int idProp)
+        public void DeleteFirm(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -112,7 +112,7 @@ namespace BusinessCardHolder.Actions
                 } 
             }
         }
-        public void Remove(string nameProp)
+        public void DeleteFirm(string nameProp)
         {
             using (var context = new BusinessCardContext())
             {
@@ -134,7 +134,7 @@ namespace BusinessCardHolder.Actions
         /// Deleting whole Table (WARNING: This action won't be able to see in logs!)
         /// </summary>
         /// <param name="tableName"></param>
-        public void Nuke()
+        public void NukeFirms()
         {
             using(var context = new BusinessCardContext())
             {
@@ -146,7 +146,7 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public bool CheckIfExist(int idProp)
+        public bool CheckIfFirmExist(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -158,7 +158,7 @@ namespace BusinessCardHolder.Actions
                 else return false;
             }
         }
-        public bool CheckIfExist(string nameProp)
+        public bool CheckIfFirmExist(string nameProp)
         {
             using (var context = new BusinessCardContext())
             {

@@ -42,7 +42,7 @@ namespace BusinessCardHolder.UnitTests
             PrepareData();
             var firmActions = new FirmActions();
 
-            var result = firmActions.DownloadSingleFirmData("Zeto");
+            var result = firmActions.ReadFirm("Zeto");
 
             Assert.AreSame("Zeto", result.Name);
         }
@@ -56,9 +56,9 @@ namespace BusinessCardHolder.UnitTests
             var personActions = new PersonActions();
             var firmAndPersonsActions = new FirmPersonActions();
 
-            var firms = firmActions.DownloadSingleFirmData("Zeto");
+            var firms = firmActions.ReadFirm("Zeto");
             firmAndPersonsActions.RemoveFirmAndEmployees(1);
-            var result = firmActions.DownloadFirmDataIntoList();
+            var result = firmActions.ReadAllFirms();
 
             Assert.AreEqual(1, result.Count);
         }
@@ -69,11 +69,11 @@ namespace BusinessCardHolder.UnitTests
             PrepareData();
             var firmActions = new FirmActions();
 
-            var firm = firmActions.DownloadSingleFirmData(1);
+            var firm = firmActions.ReadFirm(1);
 
-            firmActions.Edit(1, "Triton", "Strzyżów", "Rynek", 3, "10-210");
+            firmActions.UpdateFirm(1, "Triton", "Strzyżów", "Rynek", 3, "10-210");
 
-            var result = firmActions.DownloadSingleFirmData(1);
+            var result = firmActions.ReadFirm(1);
 
             Assert.AreNotSame(firm, result);
         }
