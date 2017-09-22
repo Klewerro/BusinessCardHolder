@@ -31,6 +31,5 @@ namespace BusinessCardHolder.Entities
         [RegularExpression(@"^\d{2}(?:[-\s]\d{3})?$", ErrorMessage = "Wrong ZIP code format")]
         public string Zip { get; set; }
 
-
     }
 }

@@ -4,7 +4,7 @@ using BusinessCardHolder.Entities;
 //using System.Windows.Forms;
 using System;
 
-namespace BusinessCardHolder.Forms.Actions
+namespace BusinessCardHolder.Actions
 {
 
     /// <summary>
@@ -36,6 +36,16 @@ namespace BusinessCardHolder.Forms.Actions
                 return firm;
             }
             
+        }
+        public Firm DownloadSingleFirmData(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                Firm firm = context.Firm.Where(x => x.Name == nameProp).FirstOrDefault();
+                //return context.Firm.Find(idProp);
+                return firm;
+            }
+
         }
 
         public void Add(string name, string city, string street, int number, string zip)
@@ -69,9 +79,6 @@ namespace BusinessCardHolder.Forms.Actions
                     //MessageBox.Show(ex.ToString() ,"Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                     
-                
-
-                
             }
         }
 
@@ -105,6 +112,23 @@ namespace BusinessCardHolder.Forms.Actions
                 } 
             }
         }
+        public void Remove(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                try
+                {
+                    var firm = context.Firm.Where(x => x.Name== nameProp).FirstOrDefault();
+                    context.Firm.Remove(firm);
+                    context.SaveChanges();
+                }
+                catch (System.ArgumentNullException ex)
+                {
+                    //MessageBox.Show("Brak rekordu w bazie danych!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Deleting whole Table (WARNING: This action won't be able to see in logs!)
@@ -134,8 +158,19 @@ namespace BusinessCardHolder.Forms.Actions
                 else return false;
             }
         }
+        public bool CheckIfExist(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                //var firm = context.Firm.Where(x => x.FirmId == idProp).FirstOrDefault();
+                if (context.Firm.Where(x => x.Name == nameProp).Count() > 0)
+                {
+                    return true;
+                }
+                else return false;
+            }
+        }
 
-        
 
     }
 }

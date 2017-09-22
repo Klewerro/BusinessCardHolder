@@ -20,5 +20,6 @@ namespace BusinessCardHolder.Entities
         public string Email { get; set; }
         public DateTime BithDate { get; set; }
 
+        public virtual Firm Firm { get; set; }
     }
 }

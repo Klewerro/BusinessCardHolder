@@ -51,10 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\FirmActions.cs" />
+    <Compile Include="Actions\FirmPersonActions.cs" />
     <Compile Include="Actions\PersonActions.cs" />
     <Compile Include="BusinessCardContext.cs" />
     <Compile Include="Entities\Firm.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Abstract\IBusinessCardContext.cs" />
     <Compile Include="Migrations\201709111239136_abcd.cs" />
     <Compile Include="Migrations\201709111239136_abcd.Designer.cs">
       <DependentUpon>201709111239136_abcd.cs</DependentUpon>
@@ -78,6 +80,14 @@
     <Compile Include="Migrations\201709191316340_LiteralErrorForename.cs" />
     <Compile Include="Migrations\201709191316340_LiteralErrorForename.Designer.cs">
       <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709211305271_AddedNavigationPropToPerson.cs" />
+    <Compile Include="Migrations\201709211305271_AddedNavigationPropToPerson.Designer.cs">
+      <DependentUpon>201709211305271_AddedNavigationPropToPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709221144250_MigrationForTests.cs" />
+    <Compile Include="Migrations\201709221144250_MigrationForTests.Designer.cs">
+      <DependentUpon>201709221144250_MigrationForTests.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -106,6 +116,13 @@
     <EmbeddedResource Include="Migrations\201709191316340_LiteralErrorForename.resx">
       <DependentUpon>201709191316340_LiteralErrorForename.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709211305271_AddedNavigationPropToPerson.resx">
+      <DependentUpon>201709211305271_AddedNavigationPropToPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709221144250_MigrationForTests.resx">
+      <DependentUpon>201709221144250_MigrationForTests.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

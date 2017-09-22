@@ -29,18 +29,29 @@ namespace BusinessCardHolder.Actions
         {
             using(var context = new BusinessCardContext())
             {
-                Person person = context.Person.Find(idProp);
+                    Person person = context.Person.Find(idProp);
+                    return person;
+            }
+        }
+        public Person DownloadSinglePerson(string nameProp)
+        {
+            using(var context = new BusinessCardContext())
+            {
+                Person person = context.Person.Where(x => x.Name == nameProp).FirstOrDefault();
                 return person;
             }
         }
 
-        public List<Person> DownloadPersonsForFirm(int firmId)
+        public List<Person> DownloadPersonsForFirm(Firm firmProp)
         {
-            using(var context = new BusinessCardContext())
+            using (var context = new BusinessCardContext())
             {
-                
+                //Lazy Loading
+                List<Person> peopleList = context.Person.Where(x => x.Firm.FirmId == firmProp.FirmId + 1).ToList();
+                return peopleList;
             }
         }
+
 
         public void Add(string forename, string name, string phone, string cellPhone, string email, DateTime birthDate)
         {
@@ -63,19 +74,9 @@ namespace BusinessCardHolder.Actions
 
         public void Add(Person personProp)
         {
-            var person = new Person()
-            {
-                Forename = personProp.Forename,
-                Name = personProp.Name,
-                Phone = personProp.Phone,
-                CellPhone = personProp.CellPhone,
-                Email = personProp.Email,
-                BithDate = personProp.BithDate
-            };
-            
             using(var context = new BusinessCardContext())
             {
-                context.Person.Add(person);
+                context.Person.Add(personProp);
                 context.SaveChanges();
             }
         }
@@ -89,6 +90,8 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
+
+        
 
         public void AddExistingPersonToFirm(int personIdProp, int firmIdProp)
         {
@@ -132,12 +135,42 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
+        public void RemovePerson(int idProp)
+        {
+            using(var context = new BusinessCardContext())
+            {
+                Person person = context.Person.Find(idProp);
+                context.Person.Remove(person);
+                context.SaveChanges();
+            }
+        }
 
         public void RemovePersonsRange(List<Person> personsList)
         {
             using(var context = new BusinessCardContext())
             {
                 context.Person.RemoveRange(personsList);
+                context.SaveChanges();
+            }
+        }
+        
+        public void RemoveAllEmployeesFromFirm(Firm firmProp)
+        {
+            using(var context = new BusinessCardContext())
+            {
+                var listToRemove = new List<Person>();
+                listToRemove = context.Person.Where(x => x.Firm.FirmId == firmProp.FirmId).ToList<Person>();
+                context.Person.RemoveRange(listToRemove);
+                context.SaveChanges();
+            }
+        }
+        public void RemoveAllEmployeesFromFirm(int idProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                var listToRemove = new List<Person>();
+                listToRemove = context.Person.Where(x => x.Firm.FirmId == idProp).ToList<Person>();
+                context.Person.RemoveRange(listToRemove);
                 context.SaveChanges();
             }
         }
