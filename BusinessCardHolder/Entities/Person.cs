@@ -5,7 +5,6 @@ namespace BusinessCardHolder.Entities
 {
     public class Person
     {
-        [Key]
         public int PersonId { get; set; }
 
         //[MaxLength(30)]
@@ -20,5 +19,6 @@ namespace BusinessCardHolder.Entities
         public string Email { get; set; }
         public DateTime BithDate { get; set; }
 
+        public virtual Firm Firm { get; set; }
     }
 }

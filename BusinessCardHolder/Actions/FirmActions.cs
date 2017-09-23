@@ -4,7 +4,7 @@ using BusinessCardHolder.Entities;
 //using System.Windows.Forms;
 using System;
 
-namespace BusinessCardHolder.Forms.Actions
+namespace BusinessCardHolder.Actions
 {
 
     /// <summary>
@@ -16,7 +16,7 @@ namespace BusinessCardHolder.Forms.Actions
         {
         }
 
-        public List<Firm> DownloadFirmDataIntoList()
+        public List<Firm> ReadAllFirms()
         {
             using (var context = new BusinessCardContext())
             {
@@ -27,7 +27,7 @@ namespace BusinessCardHolder.Forms.Actions
             }
         }
 
-        public Firm DownloadSingleFirmData(int idProp)
+        public Firm ReadFirm(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -37,8 +37,18 @@ namespace BusinessCardHolder.Forms.Actions
             }
             
         }
+        public Firm ReadFirm(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                Firm firm = context.Firm.Where(x => x.Name == nameProp).FirstOrDefault();
+                //return context.Firm.Find(idProp);
+                return firm;
+            }
 
-        public void Add(string name, string city, string street, int number, string zip)
+        }
+
+        public void CreateFirm(string name, string city, string street, int number, string zip)
         {
             using (var context = new BusinessCardContext())
             {
@@ -48,8 +58,18 @@ namespace BusinessCardHolder.Forms.Actions
                 context.SaveChanges();
             }
         }
+        public void CreateFirm(Firm firmProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                Firm firm = new Firm() { Name = firmProp.Name, City = firmProp.City, Street = firmProp.Street, Number = firmProp.Number, Zip = firmProp.Zip };
+                context.Firm.Add(firm);
+                //context.Entry(firm).State = System.Data.Entity.EntityState.Added;
+                context.SaveChanges();
+            }
+        }
 
-        public void Edit(int firmId, string name, string city, string street, int number, string zip)
+        public void UpdateFirm(int firmId, string name, string city, string street, int number, string zip)
         {
             using (var context = new BusinessCardContext())
             {
@@ -69,13 +89,9 @@ namespace BusinessCardHolder.Forms.Actions
                     //MessageBox.Show(ex.ToString() ,"Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                     
-                
-
-                
             }
         }
-
-        public void Edit(Firm firmProp)
+        public void UpdateFirm(Firm firmProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -90,7 +106,7 @@ namespace BusinessCardHolder.Forms.Actions
             }
         }
 
-        public void Remove(int idProp)
+        public void DeleteFirm(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
@@ -105,12 +121,29 @@ namespace BusinessCardHolder.Forms.Actions
                 } 
             }
         }
+        public void DeleteFirm(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                try
+                {
+                    var firm = context.Firm.Where(x => x.Name== nameProp).FirstOrDefault();
+                    context.Firm.Remove(firm);
+                    context.SaveChanges();
+                }
+                catch (System.ArgumentNullException ex)
+                {
+                    //MessageBox.Show("Brak rekordu w bazie danych!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Deleting whole Table (WARNING: This action won't be able to see in logs!)
         /// </summary>
         /// <param name="tableName"></param>
-        public void Nuke()
+        public void NukeFirms()
         {
             using(var context = new BusinessCardContext())
             {
@@ -122,12 +155,24 @@ namespace BusinessCardHolder.Forms.Actions
             }
         }
 
-        public bool CheckIfExist(int idProp)
+        public bool CheckIfFirmExist(int idProp)
         {
             using(var context = new BusinessCardContext())
             {
                 //var firm = context.Firm.Where(x => x.FirmId == idProp).FirstOrDefault();
-                if (context.Firm.Where(x => x.FirmId == idProp).Count() > 0)
+                if (context.Firm.Where(x => x.FirmId == idProp).Count() == 1)
+                {
+                    return true;
+                }
+                else return false;
+            }
+        }
+        public bool CheckIfFirmExist(string nameProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                //var firm = context.Firm.Where(x => x.FirmId == idProp).FirstOrDefault();
+                if (context.Firm.Where(x => x.Name == nameProp).Count() == 1)
                 {
                     return true;
                 }
@@ -135,7 +180,6 @@ namespace BusinessCardHolder.Forms.Actions
             }
         }
 
-        
 
     }
 }

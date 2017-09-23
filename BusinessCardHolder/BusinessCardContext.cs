@@ -11,7 +11,7 @@ namespace BusinessCardHolder
    /// <summary>
    /// Class using to take connection with DB
    /// </summary>
-   public class BusinessCardContext :DbContext
+   public class BusinessCardContext : DbContext, IBusinessCardContext
     {
         public BusinessCardContext() :base("BusinessCardDb")
         {

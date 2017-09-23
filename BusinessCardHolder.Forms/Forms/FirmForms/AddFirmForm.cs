@@ -30,7 +30,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
             try
             {
                 Actions.FirmActions firm = new Actions.FirmActions();
-                firm.Add(textBox_Name.Text.ToString(), textBox_City.Text.ToString(), textBox_Street.Text.ToString(), int.Parse(textBox_Number.Text), textBox_Zip.Text.ToString());
+                firm.CreateFirm(textBox_Name.Text.ToString(), textBox_City.Text.ToString(), textBox_Street.Text.ToString(), int.Parse(textBox_Number.Text), textBox_Zip.Text.ToString());
                 ActiveForm.Close();
             }
             catch (Exception ex)

@@ -100,7 +100,7 @@ namespace BusinessCardHolder.Forms.Forms
                         Zip = textBox_FirmZip.Text
                     };
 
-                    firmActions.Edit(firmToSave);
+                    firmActions.UpdateFirm(firmToSave);
                     MessageBox.Show("Changes saved.", "Infromation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     button_FirmSaveChanges.Visible = false;
                     button_FirmCancel.Visible = false;
