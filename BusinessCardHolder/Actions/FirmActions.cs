@@ -58,6 +58,16 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
+        public void CreateFirm(Firm firmProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                Firm firm = new Firm() { Name = firmProp.Name, City = firmProp.City, Street = firmProp.Street, Number = firmProp.Number, Zip = firmProp.Zip };
+                context.Firm.Add(firm);
+                //context.Entry(firm).State = System.Data.Entity.EntityState.Added;
+                context.SaveChanges();
+            }
+        }
 
         public void UpdateFirm(int firmId, string name, string city, string street, int number, string zip)
         {
@@ -81,7 +91,6 @@ namespace BusinessCardHolder.Actions
                     
             }
         }
-
         public void UpdateFirm(Firm firmProp)
         {
             using(var context = new BusinessCardContext())
@@ -151,7 +160,7 @@ namespace BusinessCardHolder.Actions
             using(var context = new BusinessCardContext())
             {
                 //var firm = context.Firm.Where(x => x.FirmId == idProp).FirstOrDefault();
-                if (context.Firm.Where(x => x.FirmId == idProp).Count() > 0)
+                if (context.Firm.Where(x => x.FirmId == idProp).Count() == 1)
                 {
                     return true;
                 }
@@ -163,7 +172,7 @@ namespace BusinessCardHolder.Actions
             using (var context = new BusinessCardContext())
             {
                 //var firm = context.Firm.Where(x => x.FirmId == idProp).FirstOrDefault();
-                if (context.Firm.Where(x => x.Name == nameProp).Count() > 0)
+                if (context.Firm.Where(x => x.Name == nameProp).Count() == 1)
                 {
                     return true;
                 }
