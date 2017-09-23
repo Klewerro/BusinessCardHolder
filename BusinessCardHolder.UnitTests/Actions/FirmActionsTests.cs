@@ -2,11 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessCardHolder.Entities;
 using BusinessCardHolder.UnitTests;
+using System;
 
 namespace BusinessCardHolder.Actions.Tests
 {
     [TestClass()]
-    public class FirmTests
+    public class FirmActionsTests
     {
         [TestInitialize]
         public void MyTestInitialize()
@@ -20,9 +21,9 @@ namespace BusinessCardHolder.Actions.Tests
             {
                 var f1 = new Firm() { Name = "Zeto" };
                 var f2 = new Firm() { Name = "Komputronik" };
-                var p1 = new Person() { Name = "Brzeczyszczykiewicz", Forename = "Grzegorz" };
-                var p2 = new Person() { Name = "Kapusta", Forename = "Grarzyna" };
-                var p3 = new Person() { Name = "Petru", Forename = "Ryszard" };
+                var p1 = new Person() { Name = "Brzeczyszczykiewicz", Forename = "Grzegorz", Phone = "172764084", CellPhone = "696173994", Email = "grzes@tlen.com", BithDate = new DateTime(1995, 6, 26)};
+                var p2 = new Person() { Name = "Kapusta", Forename = "Grarzyna", Phone = "172234035", CellPhone = "696126547", Email = "kapustra@asdr.pl", BithDate = new DateTime(1990, 2, 12)};
+                var p3 = new Person() { Name = "Petru", Forename = "Ryszard", Phone = "17212354", CellPhone = "696173873", Email = "petru@blame.com", BithDate = new DateTime(1992, 1, 22) };
 
                 f1.Employees.Add(p1);
                 f1.Employees.Add(p2);

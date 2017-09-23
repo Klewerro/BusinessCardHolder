@@ -58,11 +58,29 @@ namespace BusinessCardHolder.Actions
 
         public List<Person> ReadPersonsForFirm(Firm firmProp)
         {
+            //using (var context = new BusinessCardContext())
+            //{
+            //    //Lazy Loading
+            //    //List<Person> peopleList = context.Person.Where(x => x.Firm.FirmId == firmProp.FirmId + 1).ToList();
+            //    List<Person> peopleList = new List<Person>();
+            //    foreach (var item in context.Firm)
+            //    {
+            //        peopleList.Add(item.Employees);
+            //    }
+            //    return peopleList;
+            //}
             using (var context = new BusinessCardContext())
             {
-                //Lazy Loading
-                List<Person> peopleList = context.Person.Where(x => x.Firm.FirmId == firmProp.FirmId + 1).ToList();
-                return peopleList;
+                var employeesList = context.Person.Where(x => x.Firm.FirmId == firmProp.FirmId).ToList();
+                return employeesList;
+            }
+        }
+        public List<Person> ReadPersonsForFirm(int firmIdProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                var employeesList = context.Person.Where(x => x.Firm.FirmId == firmIdProp).ToList();
+                return employeesList;
             }
         }
 
@@ -104,39 +122,7 @@ namespace BusinessCardHolder.Actions
                 context.SaveChanges();
             }
         }
-
         
-
-        public void AddExistingPersonToFirm(int personIdProp, int firmIdProp)
-        {
-            using(var context = new BusinessCardContext())
-            {
-                Firm firm = context.Firm.Find(firmIdProp);
-                Person person = context.Person.Find(personIdProp);
-                firm.Employees.Add(person);
-                context.SaveChanges();
-            }
-        }
-        public void AddExistingPersonToFirm(string personNameProp, string firmNameProp)
-        {
-            using(var context = new BusinessCardContext())
-            {
-                Firm firm = context.Firm.Where(x => x.Name == firmNameProp).FirstOrDefault();
-                Person person = context.Person.Where(x => x.Name == personNameProp).FirstOrDefault();
-                firm.Employees.Add(person);
-                context.SaveChanges();
-            }
-        }
-        public void AddExistingPersonToFirm(Person personProp, Firm firmProp)
-        {
-            using(var context = new BusinessCardContext())
-            {
-                Firm firm = context.Firm.Find(firmProp.FirmId);
-                Person person = context.Person.Find(personProp.PersonId);
-                firm.Employees.Add(person);
-                context.SaveChanges();
-            }
-        }
 
         public void DeletePerson(string nameProp)
         {
@@ -157,11 +143,16 @@ namespace BusinessCardHolder.Actions
             }
         }
 
-        public void DeletePersonsRange(List<Person> personsList)
-        {
+        public void DeletePersonsRange(int startId, int stopId)
+        {         
             using(var context = new BusinessCardContext())
             {
-                context.Person.RemoveRange(personsList);
+                var ppleToDelete = new List<Person>();
+                for (int i = startId; i < stopId+1; i++)
+                {
+                    ppleToDelete.Add(context.Person.Find(i));
+                }
+                context.Person.RemoveRange(ppleToDelete);
                 context.SaveChanges();
             }
         }
@@ -181,7 +172,7 @@ namespace BusinessCardHolder.Actions
             using (var context = new BusinessCardContext())
             {
                 var listToRemove = new List<Person>();
-                listToRemove = context.Person.Where(x => x.Firm.FirmId == idProp).ToList<Person>();
+                listToRemove = context.Person.Where(x => x.Firm.FirmId == idProp).ToList();
                 context.Person.RemoveRange(listToRemove);
                 context.SaveChanges();
             }

@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using BusinessCardHolder.Actions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessCardHolder
 {
@@ -44,14 +45,50 @@ namespace BusinessCardHolder
                 Number = 2,
                 Zip = "23-120"
             };
+            var p3 = new Person() { Name = "Petru", Forename = "Ryszard", Phone = "17212354", CellPhone = "696173873", Email = "petru@blame.com", BithDate = new DateTime(1992, 1, 22) };
 
 
-            firmAndPersonActions.CreateNewFirmAndNewPerson(f1, p1);
-            personActions.CreatePersonAndAddToFirm(p2, f1.FirmId);
-            //personActions.DownloadPersonsForFirm(f2);
-            //Person person = personActions.DownloadSinglePerson("Mol");
-            //Console.WriteLine(person.Name);
-            //firmAndPersonActions.RemoveFirmAndEmployees(3);
+
+            //var firma = firmActions.ReadFirm("Zeto");
+            //personActions.CreatePersonAndAddToFirm(p2, firma.FirmId);
+
+            using (var context = new BusinessCardContext())
+            {
+                f2.Employees.Add(p3);
+                context.Firm.Add(f2);
+                context.SaveChanges();
+            }
+
+
+            //using (var context = new BusinessCardContext())
+            //{
+            //    var firm = context.Firm.Find(5);
+            //    Console.WriteLine(firm.Name);
+
+
+            //    foreach (var item in firm.Employees)
+            //    {
+            //        Console.WriteLine(item.Name);
+            //    }
+            //    Console.WriteLine(firm.Employees.Count);
+
+            //}
+
+
+            using (var context = new BusinessCardContext())
+            {
+                var a = context.Person.Where(x => x.Firm.FirmId == 6).ToList() ;
+                foreach (var item in a)
+                {
+                    Console.WriteLine(item.Name);
+                }
+            }
+
+
+
+            //var firma2 = firmActions.ReadFirm("Zeto");
+            //Console.WriteLine(firma2.Employees[0].Name);
+            //Console.WriteLine(firma2.Employees.Count);
 
 
 

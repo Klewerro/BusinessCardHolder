@@ -5,7 +5,6 @@ namespace BusinessCardHolder.Entities
 {
     public class Person
     {
-        [Key]
         public int PersonId { get; set; }
 
         //[MaxLength(30)]
