@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Copyright (c) 2011-2014 Effort Team
+//https://effort.codeplex.com/
+
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity.Infrastructure;
@@ -35,3 +38,4 @@ namespace BusinessCardHolder.UnitTests
         }
     }
 }
+
