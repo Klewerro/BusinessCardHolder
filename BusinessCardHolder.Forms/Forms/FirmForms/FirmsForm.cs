@@ -57,8 +57,16 @@ namespace BusinessCardHolder.Forms.Forms
             {
                 if (firmActions.CheckIfFirmExist(currentId) == true)
                 {
-                    firmActions.DeleteFirm(currentId);
-                    MessageBox.Show(firm.Name +"(id: " + firm.FirmId + ")" + " was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        firmActions.DeleteFirm(currentId);
+                        MessageBox.Show(firm.Name + "(id: " + firm.FirmId + ")" + " was deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch(System.Data.Entity.Infrastructure.DbUpdateException)
+                    {
+                        MessageBox.Show("Firm have assigned employees.\nDelete them before deleting firm", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    
                 }
                 else MessageBox.Show("No data record in database!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

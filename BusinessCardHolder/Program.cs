@@ -52,12 +52,12 @@ namespace BusinessCardHolder
             //var firma = firmActions.ReadFirm("Zeto");
             //personActions.CreatePersonAndAddToFirm(p2, firma.FirmId);
 
-            using (var context = new BusinessCardContext())
-            {
-                f2.Employees.Add(p3);
-                context.Firm.Add(f2);
-                context.SaveChanges();
-            }
+            //using (var context = new BusinessCardContext())
+            //{
+            //    f2.Employees.Add(p3);
+            //    context.Firm.Add(f2);
+            //    context.SaveChanges();
+            //}
 
 
             //using (var context = new BusinessCardContext())
@@ -75,15 +75,17 @@ namespace BusinessCardHolder
             //}
 
 
-            using (var context = new BusinessCardContext())
-            {
-                var a = context.Person.Where(x => x.Firm.FirmId == 6).ToList() ;
-                foreach (var item in a)
-                {
-                    Console.WriteLine(item.Name);
-                }
-            }
-
+            //using (var context = new BusinessCardContext())
+            //{
+            //    var a = context.Person.Where(x => x.Firm.FirmId == 7).ToList() ;
+            //    foreach (var item in a)
+            //    {
+            //        Console.WriteLine(item.Name);
+            //    }
+            //}
+            //p3.Forename = "Rysiu";
+            //personActions.UpdatePerson(14 ,p3);
+            //Console.WriteLine(personActions.ReadPerson("Petru").Forename);
 
 
             //var firma2 = firmActions.ReadFirm("Zeto");

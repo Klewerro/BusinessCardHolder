@@ -178,6 +178,38 @@ namespace BusinessCardHolder.Actions
             }
         }
 
+        
+        public void UpdatePerson(Person personProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                //var person = context.Person.Find(personProp.PersonId);
+                var person = context.Person.Where(x => x.PersonId == personProp.PersonId).FirstOrDefault();
+                person.Forename = personProp.Forename;
+                person.Name = personProp.Name;
+                person.Phone = personProp.Phone;
+                person.CellPhone = personProp.CellPhone;
+                person.Email = personProp.Email;
+                person.BithDate = personProp.BithDate;
+
+                context.SaveChanges();
+            }
+        }
+        public void UpdatePerson(int idProp, Person personProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                var person = context.Person.Find(idProp);
+                person.Forename = personProp.Forename;
+                person.Name = personProp.Name;
+                person.Phone = personProp.Phone;
+                person.CellPhone = personProp.CellPhone;
+                person.Email = personProp.Email;
+                person.BithDate = personProp.BithDate;
+
+                context.SaveChanges();
+            }
+        }
 
     }
 }
