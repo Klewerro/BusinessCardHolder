@@ -160,7 +160,7 @@
             this.Controls.Add(this.textBox_City);
             this.Controls.Add(this.textBox_Name);
             this.Name = "EditFirmForm";
-            this.Text = "EditFirmForm";
+            this.Text = "Edit firm";
             this.Load += new System.EventHandler(this.EditFirmForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -33,6 +33,7 @@
             this.form1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,7 @@
             this.form1ToolStripMenuItem,
             this.form2ToolStripMenuItem,
             this.firmsToolStripMenuItem,
+            this.personsToolStripMenuItem,
             this.closeAllToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
@@ -68,28 +70,35 @@
             // form1ToolStripMenuItem
             // 
             this.form1ToolStripMenuItem.Name = "form1ToolStripMenuItem";
-            this.form1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.form1ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.form1ToolStripMenuItem.Text = "Form1";
             this.form1ToolStripMenuItem.Click += new System.EventHandler(this.form1ToolStripMenuItem_Click);
             // 
             // form2ToolStripMenuItem
             // 
             this.form2ToolStripMenuItem.Name = "form2ToolStripMenuItem";
-            this.form2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.form2ToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.form2ToolStripMenuItem.Text = "Form2";
             this.form2ToolStripMenuItem.Click += new System.EventHandler(this.form2ToolStripMenuItem_Click);
             // 
             // firmsToolStripMenuItem
             // 
             this.firmsToolStripMenuItem.Name = "firmsToolStripMenuItem";
-            this.firmsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.firmsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.firmsToolStripMenuItem.Text = "Firms";
             this.firmsToolStripMenuItem.Click += new System.EventHandler(this.firmsToolStripMenuItem_Click);
+            // 
+            // personsToolStripMenuItem
+            // 
+            this.personsToolStripMenuItem.Name = "personsToolStripMenuItem";
+            this.personsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.personsToolStripMenuItem.Text = "Persons";
+            this.personsToolStripMenuItem.Click += new System.EventHandler(this.personsToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -140,7 +149,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MDIParent";
-            this.Text = "MDIParent";
+            this.Text = "Business Card Holder";
+            this.Load += new System.EventHandler(this.MDIParent_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -161,5 +171,6 @@
         private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem firmsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personsToolStripMenuItem;
     }
 }

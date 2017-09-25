@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessCardHolder.Entities
 {
@@ -20,5 +21,8 @@ namespace BusinessCardHolder.Entities
         public DateTime BithDate { get; set; }
 
         public virtual Firm Firm { get; set; }
+
+        [NotMapped]
+        public string FirmName { get; set; }
     }
 }

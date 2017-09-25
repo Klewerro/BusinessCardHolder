@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity.Validation;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessCardHolder.Actions;
 using System.ComponentModel.DataAnnotations;
@@ -41,6 +35,7 @@ namespace BusinessCardHolder.Forms.Forms
             TextBoxesAreReadOnly(true);
             DownloadEmployees();
             DownloadDefaultEmployee();
+            this.Text = "Firm: " + firmInCurrentForm.Name;
         }
         //-----------------------------------------------------------
         //FIRM STUFF
@@ -237,16 +232,19 @@ namespace BusinessCardHolder.Forms.Forms
 
         private void DownloadDefaultEmployee()
         {
-            int id = int.Parse(dataGridView_EmployeesTable.Rows[0].Cells[0].Value.ToString());
+            if(personActions.ReadPersonsForFirm(firmInCurrentForm).Count != 0)
+            {
+                int id = int.Parse(dataGridView_EmployeesTable.Rows[0].Cells[0].Value.ToString());
 
-            Entities.Person person = personActions.ReadPerson(id);
+                Entities.Person person = personActions.ReadPerson(id);
 
-            textBoxEmployeeName.Text = person.Name;
-            textBox_EmployeeForename.Text = person.Forename;
-            textBox_EmployeePhone.Text = person.Phone;
-            textBox_EmployeeCellPhone.Text = person.CellPhone;
-            textBox_EmployeeEmail.Text = person.Email;
-            birthDatePicker.Value = person.BithDate;
+                textBoxEmployeeName.Text = person.Name;
+                textBox_EmployeeForename.Text = person.Forename;
+                textBox_EmployeePhone.Text = person.Phone;
+                textBox_EmployeeCellPhone.Text = person.CellPhone;
+                textBox_EmployeeEmail.Text = person.Email;
+                birthDatePicker.Value = person.BithDate;
+            }
         }
 
 
@@ -315,7 +313,15 @@ namespace BusinessCardHolder.Forms.Forms
             
         }
 
-
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            textBoxEmployeeName.Text = null;
+            textBox_EmployeeForename.Text = null;
+            textBox_EmployeePhone.Text = null;
+            textBox_EmployeeCellPhone.Text = null;
+            textBox_EmployeeEmail.Text = null;
+            birthDatePicker.Value = new DateTime(1980, 1, 1);
+        }
 
 
 

@@ -24,6 +24,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
         private void EditFirmForm_Load(object sender, System.EventArgs e)
         {
             AssertDataToTextboxes();
+            this.Text = "Edit firm: " + firm.Name;
         }
 
         private void button_Edit_Click(object sender, System.EventArgs e)
