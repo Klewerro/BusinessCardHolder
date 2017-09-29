@@ -24,6 +24,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
         private void EditFirmForm_Load(object sender, System.EventArgs e)
         {
             AssertDataToTextboxes();
+            this.Text = "Edit firm: " + firm.Name;
         }
 
         private void button_Edit_Click(object sender, System.EventArgs e)
@@ -41,7 +42,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
                 } else
                 {
                     firmActions.UpdateFirm(firmId, textBox_Name.Text, textBox_City.Text, textBox_Street.Text, int.Parse(textBox_Number.Text), textBox_Zip.Text);
-                    ActiveForm.Close();
+                    this.Close();
                 }
             }
             catch(Exception ex)
@@ -53,7 +54,7 @@ namespace BusinessCardHolder.Forms.Forms.Firm
 
         private void button_Cancel_Click(object sender, EventArgs e)
         {
-            ActiveForm.Close();
+            this.Close();
         }
 
         private void AssertDataToTextboxes()

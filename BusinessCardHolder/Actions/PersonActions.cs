@@ -25,9 +25,36 @@ namespace BusinessCardHolder.Actions
             using (var context = new BusinessCardContext())
             {
                 var persons = context.Person.Select(n => n).ToList();
+                foreach (var person in persons)
+                {
+                    person.FirmName = person.Firm.Name.ToString();
+                }
                 return persons;
             }
         }
+
+        //public List<PersonWithFirmString> ReadPersonsWithFirmString()
+        //{
+        //    using(var context = new BusinessCardContext())
+        //    {
+        //        var personsList = new List<PersonWithFirmString>();
+        //        foreach (var person in context.Person)
+        //        {
+        //            personsList.Add(new PersonWithFirmString()
+        //            {
+        //                PersonId = person.PersonId,
+        //                Name = person.Name,
+        //                Forename = person.Forename,
+        //                Phone = person.Phone,
+        //                CellPhone = person.CellPhone,
+        //                Email = person.Email,
+        //                BithDate = person.BithDate,
+        //                FirmName = person.Firm.Name.ToString()
+        //            });
+        //        }
+        //        return personsList;
+        //    }
+        //}
 
         /// <summary>
         /// Reading single person from database
@@ -39,6 +66,7 @@ namespace BusinessCardHolder.Actions
             using(var context = new BusinessCardContext())
             {
                     Person person = context.Person.Find(idProp);
+                person.FirmName = person.Firm.Name.ToString();
                     return person;
             }
         }
@@ -55,6 +83,7 @@ namespace BusinessCardHolder.Actions
                 return person;
             }
         }
+        
 
         public List<Person> ReadPersonsForFirm(Firm firmProp)
         {
@@ -178,6 +207,38 @@ namespace BusinessCardHolder.Actions
             }
         }
 
+        
+        public void UpdatePerson(Person personProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                //var person = context.Person.Find(personProp.PersonId);
+                var person = context.Person.Where(x => x.PersonId == personProp.PersonId).FirstOrDefault();
+                person.Forename = personProp.Forename;
+                person.Name = personProp.Name;
+                person.Phone = personProp.Phone;
+                person.CellPhone = personProp.CellPhone;
+                person.Email = personProp.Email;
+                person.BithDate = personProp.BithDate;
+
+                context.SaveChanges();
+            }
+        }
+        public void UpdatePerson(int idProp, Person personProp)
+        {
+            using (var context = new BusinessCardContext())
+            {
+                var person = context.Person.Find(idProp);
+                person.Forename = personProp.Forename;
+                person.Name = personProp.Name;
+                person.Phone = personProp.Phone;
+                person.CellPhone = personProp.CellPhone;
+                person.Email = personProp.Email;
+                person.BithDate = personProp.BithDate;
+
+                context.SaveChanges();
+            }
+        }
 
     }
 }

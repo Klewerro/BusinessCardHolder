@@ -38,17 +38,11 @@
             this.textBox_FirmCity = new System.Windows.Forms.TextBox();
             this.label_FirmName = new System.Windows.Forms.Label();
             this.textBox_FirmName = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.personIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bithDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView_EmployeesTable = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip_InTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.texyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button_AddEmployee = new System.Windows.Forms.Button();
             this.tabControl_Firm = new System.Windows.Forms.TabControl();
             this.tabPage_Firm = new System.Windows.Forms.TabPage();
@@ -56,6 +50,10 @@
             this.button_FirmEdit = new System.Windows.Forms.Button();
             this.button_FirmSaveChanges = new System.Windows.Forms.Button();
             this.tabPage_Employees = new System.Windows.Forms.TabPage();
+            this.button_Clear = new System.Windows.Forms.Button();
+            this.button_EmployeeRemove = new System.Windows.Forms.Button();
+            this.button_EmployeeEdit = new System.Windows.Forms.Button();
+            this.button_EmployeeAdd = new System.Windows.Forms.Button();
             this.label_EmployeeBirthDate = new System.Windows.Forms.Label();
             this.label_EmployeeEmail = new System.Windows.Forms.Label();
             this.label_EmployeeCellPhone = new System.Windows.Forms.Label();
@@ -68,15 +66,31 @@
             this.textBoxEmployeeName = new System.Windows.Forms.TextBox();
             this.label_EmployeeForename = new System.Windows.Forms.Label();
             this.textBox_EmployeeForename = new System.Windows.Forms.TextBox();
-            this.button_EmployeeAdd = new System.Windows.Forms.Button();
-            this.button_EmployeeEdit = new System.Windows.Forms.Button();
-            this.button_EmployeeRemove = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label_SearchName = new System.Windows.Forms.Label();
+            this.textBox_SearchName = new System.Windows.Forms.TextBox();
+            this.textBox_SearchForename = new System.Windows.Forms.TextBox();
+            this.textBox_SearchEmail = new System.Windows.Forms.TextBox();
+            this.textBox_SearchFirmName = new System.Windows.Forms.TextBox();
+            this.label_SearchForename = new System.Windows.Forms.Label();
+            this.label_SearchEmail = new System.Windows.Forms.Label();
+            this.label_SearchFirmName = new System.Windows.Forms.Label();
+            this.button_SearchAction = new System.Windows.Forms.Button();
+            this.bithDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_EmployeesTable)).BeginInit();
             this.contextMenuStrip_InTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.tabControl_Firm.SuspendLayout();
             this.tabPage_Firm.SuspendLayout();
             this.tabPage_Employees.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label_FirmZip
@@ -153,68 +167,38 @@
             this.textBox_FirmName.Size = new System.Drawing.Size(152, 20);
             this.textBox_FirmName.TabIndex = 0;
             // 
-            // dataGridView1
+            // dataGridView_EmployeesTable
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_EmployeesTable.AutoGenerateColumns = false;
+            this.dataGridView_EmployeesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_EmployeesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.personIdDataGridViewTextBoxColumn,
+            this.forenameDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.cellPhoneDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.bithDateDataGridViewTextBoxColumn});
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip_InTable;
-            this.dataGridView1.DataSource = this.personBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(257, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(675, 381);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // personIdDataGridViewTextBoxColumn
-            // 
-            this.personIdDataGridViewTextBoxColumn.DataPropertyName = "PersonId";
-            this.personIdDataGridViewTextBoxColumn.HeaderText = "PersonId";
-            this.personIdDataGridViewTextBoxColumn.Name = "personIdDataGridViewTextBoxColumn";
-            this.personIdDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // cellPhoneDataGridViewTextBoxColumn
-            // 
-            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
-            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
-            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // bithDateDataGridViewTextBoxColumn
-            // 
-            this.bithDateDataGridViewTextBoxColumn.DataPropertyName = "BithDate";
-            this.bithDateDataGridViewTextBoxColumn.HeaderText = "BithDate";
-            this.bithDateDataGridViewTextBoxColumn.Name = "bithDateDataGridViewTextBoxColumn";
+            this.dataGridView_EmployeesTable.ContextMenuStrip = this.contextMenuStrip_InTable;
+            this.dataGridView_EmployeesTable.DataSource = this.personBindingSource;
+            this.dataGridView_EmployeesTable.Location = new System.Drawing.Point(257, 39);
+            this.dataGridView_EmployeesTable.MultiSelect = false;
+            this.dataGridView_EmployeesTable.Name = "dataGridView_EmployeesTable";
+            this.dataGridView_EmployeesTable.ReadOnly = true;
+            this.dataGridView_EmployeesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_EmployeesTable.Size = new System.Drawing.Size(742, 381);
+            this.dataGridView_EmployeesTable.TabIndex = 1;
+            this.dataGridView_EmployeesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_EmployeesTable_CellContentClick);
+            this.dataGridView_EmployeesTable.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_EmployeesTable_CellMouseClick);
             // 
             // contextMenuStrip_InTable
             // 
             this.contextMenuStrip_InTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textToolStripMenuItem,
-            this.texyToolStripMenuItem});
+            this.texyToolStripMenuItem,
+            this.refreshToolStripMenuItem});
             this.contextMenuStrip_InTable.Name = "contextMenuStrip_InTable";
-            this.contextMenuStrip_InTable.Size = new System.Drawing.Size(118, 48);
+            this.contextMenuStrip_InTable.Size = new System.Drawing.Size(118, 70);
             // 
             // textToolStripMenuItem
             // 
@@ -228,9 +212,12 @@
             this.texyToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.texyToolStripMenuItem.Text = "Remove";
             // 
-            // personBindingSource
+            // refreshToolStripMenuItem
             // 
-            this.personBindingSource.DataSource = typeof(BusinessCardHolder.Entities.Person);
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // button_AddEmployee
             // 
@@ -246,6 +233,7 @@
             // 
             this.tabControl_Firm.Controls.Add(this.tabPage_Firm);
             this.tabControl_Firm.Controls.Add(this.tabPage_Employees);
+            this.tabControl_Firm.Controls.Add(this.tabPage1);
             this.tabControl_Firm.Location = new System.Drawing.Point(12, 39);
             this.tabControl_Firm.Name = "tabControl_Firm";
             this.tabControl_Firm.SelectedIndex = 0;
@@ -308,6 +296,7 @@
             // 
             // tabPage_Employees
             // 
+            this.tabPage_Employees.Controls.Add(this.button_Clear);
             this.tabPage_Employees.Controls.Add(this.button_EmployeeRemove);
             this.tabPage_Employees.Controls.Add(this.button_EmployeeEdit);
             this.tabPage_Employees.Controls.Add(this.button_EmployeeAdd);
@@ -330,6 +319,46 @@
             this.tabPage_Employees.TabIndex = 1;
             this.tabPage_Employees.Text = "Employees";
             this.tabPage_Employees.UseVisualStyleBackColor = true;
+            // 
+            // button_Clear
+            // 
+            this.button_Clear.Location = new System.Drawing.Point(170, 197);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(46, 39);
+            this.button_Clear.TabIndex = 17;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            // 
+            // button_EmployeeRemove
+            // 
+            this.button_EmployeeRemove.Location = new System.Drawing.Point(136, 245);
+            this.button_EmployeeRemove.Name = "button_EmployeeRemove";
+            this.button_EmployeeRemove.Size = new System.Drawing.Size(56, 27);
+            this.button_EmployeeRemove.TabIndex = 16;
+            this.button_EmployeeRemove.Text = "Remove";
+            this.button_EmployeeRemove.UseVisualStyleBackColor = true;
+            this.button_EmployeeRemove.Click += new System.EventHandler(this.button_EmployeeRemove_Click);
+            // 
+            // button_EmployeeEdit
+            // 
+            this.button_EmployeeEdit.Location = new System.Drawing.Point(70, 245);
+            this.button_EmployeeEdit.Name = "button_EmployeeEdit";
+            this.button_EmployeeEdit.Size = new System.Drawing.Size(56, 27);
+            this.button_EmployeeEdit.TabIndex = 15;
+            this.button_EmployeeEdit.Text = "Edit";
+            this.button_EmployeeEdit.UseVisualStyleBackColor = true;
+            this.button_EmployeeEdit.Click += new System.EventHandler(this.button_EmployeeEdit_Click);
+            // 
+            // button_EmployeeAdd
+            // 
+            this.button_EmployeeAdd.Location = new System.Drawing.Point(8, 245);
+            this.button_EmployeeAdd.Name = "button_EmployeeAdd";
+            this.button_EmployeeAdd.Size = new System.Drawing.Size(56, 27);
+            this.button_EmployeeAdd.TabIndex = 14;
+            this.button_EmployeeAdd.Text = "Add";
+            this.button_EmployeeAdd.UseVisualStyleBackColor = true;
+            this.button_EmployeeAdd.Click += new System.EventHandler(this.button_EmployeeAdd_Click);
             // 
             // label_EmployeeBirthDate
             // 
@@ -433,53 +462,173 @@
             this.textBox_EmployeeForename.Size = new System.Drawing.Size(152, 20);
             this.textBox_EmployeeForename.TabIndex = 1;
             // 
-            // button_EmployeeAdd
+            // tabPage1
             // 
-            this.button_EmployeeAdd.Location = new System.Drawing.Point(8, 245);
-            this.button_EmployeeAdd.Name = "button_EmployeeAdd";
-            this.button_EmployeeAdd.Size = new System.Drawing.Size(56, 27);
-            this.button_EmployeeAdd.TabIndex = 14;
-            this.button_EmployeeAdd.Text = "Add";
-            this.button_EmployeeAdd.UseVisualStyleBackColor = true;
-            this.button_EmployeeAdd.Click += new System.EventHandler(this.button_EmployeeAdd_Click);
+            this.tabPage1.Controls.Add(this.button_SearchAction);
+            this.tabPage1.Controls.Add(this.label_SearchFirmName);
+            this.tabPage1.Controls.Add(this.label_SearchEmail);
+            this.tabPage1.Controls.Add(this.label_SearchForename);
+            this.tabPage1.Controls.Add(this.textBox_SearchFirmName);
+            this.tabPage1.Controls.Add(this.textBox_SearchEmail);
+            this.tabPage1.Controls.Add(this.textBox_SearchForename);
+            this.tabPage1.Controls.Add(this.textBox_SearchName);
+            this.tabPage1.Controls.Add(this.label_SearchName);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(231, 290);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Search";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button_EmployeeEdit
+            // label_SearchName
             // 
-            this.button_EmployeeEdit.Location = new System.Drawing.Point(70, 245);
-            this.button_EmployeeEdit.Name = "button_EmployeeEdit";
-            this.button_EmployeeEdit.Size = new System.Drawing.Size(56, 27);
-            this.button_EmployeeEdit.TabIndex = 15;
-            this.button_EmployeeEdit.Text = "Edit";
-            this.button_EmployeeEdit.UseVisualStyleBackColor = true;
+            this.label_SearchName.AutoSize = true;
+            this.label_SearchName.Location = new System.Drawing.Point(22, 20);
+            this.label_SearchName.Name = "label_SearchName";
+            this.label_SearchName.Size = new System.Drawing.Size(38, 13);
+            this.label_SearchName.TabIndex = 0;
+            this.label_SearchName.Text = "Name:";
             // 
-            // button_EmployeeRemove
+            // textBox_SearchName
             // 
-            this.button_EmployeeRemove.Location = new System.Drawing.Point(136, 245);
-            this.button_EmployeeRemove.Name = "button_EmployeeRemove";
-            this.button_EmployeeRemove.Size = new System.Drawing.Size(56, 27);
-            this.button_EmployeeRemove.TabIndex = 16;
-            this.button_EmployeeRemove.Text = "Remove";
-            this.button_EmployeeRemove.UseVisualStyleBackColor = true;
+            this.textBox_SearchName.Location = new System.Drawing.Point(91, 13);
+            this.textBox_SearchName.Name = "textBox_SearchName";
+            this.textBox_SearchName.Size = new System.Drawing.Size(128, 20);
+            this.textBox_SearchName.TabIndex = 1;
+            // 
+            // textBox_SearchForename
+            // 
+            this.textBox_SearchForename.Location = new System.Drawing.Point(91, 48);
+            this.textBox_SearchForename.Name = "textBox_SearchForename";
+            this.textBox_SearchForename.Size = new System.Drawing.Size(128, 20);
+            this.textBox_SearchForename.TabIndex = 2;
+            // 
+            // textBox_SearchEmail
+            // 
+            this.textBox_SearchEmail.Location = new System.Drawing.Point(91, 83);
+            this.textBox_SearchEmail.Name = "textBox_SearchEmail";
+            this.textBox_SearchEmail.Size = new System.Drawing.Size(128, 20);
+            this.textBox_SearchEmail.TabIndex = 3;
+            // 
+            // textBox_SearchFirmName
+            // 
+            this.textBox_SearchFirmName.Location = new System.Drawing.Point(91, 118);
+            this.textBox_SearchFirmName.Name = "textBox_SearchFirmName";
+            this.textBox_SearchFirmName.Size = new System.Drawing.Size(128, 20);
+            this.textBox_SearchFirmName.TabIndex = 4;
+            // 
+            // label_SearchForename
+            // 
+            this.label_SearchForename.AutoSize = true;
+            this.label_SearchForename.Location = new System.Drawing.Point(22, 51);
+            this.label_SearchForename.Name = "label_SearchForename";
+            this.label_SearchForename.Size = new System.Drawing.Size(57, 13);
+            this.label_SearchForename.TabIndex = 5;
+            this.label_SearchForename.Text = "Forename:";
+            // 
+            // label_SearchEmail
+            // 
+            this.label_SearchEmail.AutoSize = true;
+            this.label_SearchEmail.Location = new System.Drawing.Point(22, 86);
+            this.label_SearchEmail.Name = "label_SearchEmail";
+            this.label_SearchEmail.Size = new System.Drawing.Size(35, 13);
+            this.label_SearchEmail.TabIndex = 6;
+            this.label_SearchEmail.Text = "Email:";
+            // 
+            // label_SearchFirmName
+            // 
+            this.label_SearchFirmName.AutoSize = true;
+            this.label_SearchFirmName.Location = new System.Drawing.Point(22, 121);
+            this.label_SearchFirmName.Name = "label_SearchFirmName";
+            this.label_SearchFirmName.Size = new System.Drawing.Size(60, 13);
+            this.label_SearchFirmName.TabIndex = 7;
+            this.label_SearchFirmName.Text = "Firm Name:";
+            // 
+            // button_SearchAction
+            // 
+            this.button_SearchAction.Location = new System.Drawing.Point(144, 158);
+            this.button_SearchAction.Name = "button_SearchAction";
+            this.button_SearchAction.Size = new System.Drawing.Size(75, 23);
+            this.button_SearchAction.TabIndex = 8;
+            this.button_SearchAction.Text = "Search";
+            this.button_SearchAction.UseVisualStyleBackColor = true;
+            this.button_SearchAction.Click += new System.EventHandler(this.button_SearchAction_Click);
+            // 
+            // bithDateDataGridViewTextBoxColumn
+            // 
+            this.bithDateDataGridViewTextBoxColumn.DataPropertyName = "BithDate";
+            this.bithDateDataGridViewTextBoxColumn.HeaderText = "BithDate";
+            this.bithDateDataGridViewTextBoxColumn.Name = "bithDateDataGridViewTextBoxColumn";
+            this.bithDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cellPhoneDataGridViewTextBoxColumn
+            // 
+            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
+            this.cellPhoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // forenameDataGridViewTextBoxColumn
+            // 
+            this.forenameDataGridViewTextBoxColumn.DataPropertyName = "Forename";
+            this.forenameDataGridViewTextBoxColumn.HeaderText = "Forename";
+            this.forenameDataGridViewTextBoxColumn.Name = "forenameDataGridViewTextBoxColumn";
+            this.forenameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // personIdDataGridViewTextBoxColumn
+            // 
+            this.personIdDataGridViewTextBoxColumn.DataPropertyName = "PersonId";
+            this.personIdDataGridViewTextBoxColumn.HeaderText = "PersonId";
+            this.personIdDataGridViewTextBoxColumn.Name = "personIdDataGridViewTextBoxColumn";
+            this.personIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personIdDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(BusinessCardHolder.Entities.Person);
             // 
             // FirmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 461);
+            this.ClientSize = new System.Drawing.Size(1018, 461);
             this.Controls.Add(this.tabControl_Firm);
             this.Controls.Add(this.button_AddEmployee);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_EmployeesTable);
             this.Name = "FirmForm";
             this.Text = "FirmForm";
             this.Load += new System.EventHandler(this.FirmForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_EmployeesTable)).EndInit();
             this.contextMenuStrip_InTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.tabControl_Firm.ResumeLayout(false);
             this.tabPage_Firm.ResumeLayout(false);
             this.tabPage_Firm.PerformLayout();
             this.tabPage_Employees.ResumeLayout(false);
             this.tabPage_Employees.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -494,14 +643,7 @@
         private System.Windows.Forms.TextBox textBox_FirmNumber;
         private System.Windows.Forms.TextBox textBox_FirmStreet;
         private System.Windows.Forms.TextBox textBox_FirmCity;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bithDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource personBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView_EmployeesTable;
         private System.Windows.Forms.Button button_AddEmployee;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_InTable;
         private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
@@ -527,5 +669,25 @@
         private System.Windows.Forms.Button button_EmployeeRemove;
         private System.Windows.Forms.Button button_EmployeeEdit;
         private System.Windows.Forms.Button button_EmployeeAdd;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.Button button_Clear;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label_SearchFirmName;
+        private System.Windows.Forms.Label label_SearchEmail;
+        private System.Windows.Forms.Label label_SearchForename;
+        private System.Windows.Forms.TextBox textBox_SearchFirmName;
+        private System.Windows.Forms.TextBox textBox_SearchEmail;
+        private System.Windows.Forms.TextBox textBox_SearchForename;
+        private System.Windows.Forms.TextBox textBox_SearchName;
+        private System.Windows.Forms.Label label_SearchName;
+        private System.Windows.Forms.Button button_SearchAction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn forenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bithDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource personBindingSource;
     }
 }

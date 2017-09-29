@@ -92,10 +92,12 @@ namespace BusinessCardHolder.Actions.Tests
             //arrange
             PrepareData();
             var personActions = new PersonActions();
+            var firmActions = new FirmPersonActions();
 
             //act
             var result1 = personActions.ReadPersons();
             personActions.CreatePerson(new Person() { Forename = "ABC", Name = "DEF" });
+            firmActions.AddExistingPersonToExistingFirm("DEF", "Zeto");
             var result2 = personActions.ReadPersons();
 
             //assert
@@ -205,6 +207,23 @@ namespace BusinessCardHolder.Actions.Tests
                 Assert.Fail();
             }
             catch (System.ArgumentOutOfRangeException ex) { }
+        }
+
+        [TestMethod()]
+        public void UpdatePersonTest()
+        {
+            //arrange
+            PrepareData();
+            var personActions = new PersonActions();
+            var person = personActions.ReadPerson(1);
+
+            //act
+            var result1 = personActions.ReadPerson(1);    //Name = "Brzeczyszczykiewicz", Forename = "Grzegorz"
+            personActions.UpdatePerson(person);
+            var result2 = personActions.ReadPerson(1);
+
+            //assert
+            Assert.AreNotSame(result1, result2);
         }
     }
 }

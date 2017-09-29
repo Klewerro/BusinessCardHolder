@@ -66,6 +66,8 @@
     <Compile Include="Actions\FirmActionsTests.cs" />
     <Compile Include="Actions\FirmPersonActionsTests.cs" />
     <Compile Include="Actions\PersonActionsTests.cs" />
+    <Compile Include="Actions\SearchEnginePersonTests.cs" />
+    <Compile Include="Actions\SearchEngineFirmTests.cs" />
     <Compile Include="EffortProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestsInitialize.cs" />

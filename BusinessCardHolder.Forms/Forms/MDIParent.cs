@@ -15,6 +15,11 @@ namespace BusinessCardHolder.Forms.Forms
             this.IsMdiContainer = true;
         }
 
+        private void MDIParent_Load(object sender, EventArgs e)
+        {
+            this.Text = "Business Card Holder";
+        }
+
         private void form1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 f1 = new Form1();
@@ -72,19 +77,31 @@ namespace BusinessCardHolder.Forms.Forms
         
         private void firmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (firmsForm == null)
-            {
                 firmsForm = new FirmsForm();
                 firmsForm.MdiParent = this;
-                firmsForm.FormClosed += new FormClosedEventHandler(firmsForm_FormClosed);
+                //firmsForm.FormClosed += new FormClosedEventHandler(firmsForm_FormClosed);
                 firmsForm.Show();
-            }
-            else
-                firmsForm.Activate();   
+                
+
         }
-        private void firmsForm_FormClosed(object sender, FormClosedEventArgs e)
+        //private void firmsForm_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    firmsForm = null;
+        //}
+
+        private void personsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            firmsForm = null;
+            PersonsForm personsForm = new PersonsForm();
+            personsForm.MdiParent = this;
+            personsForm.Show();
+        }
+
+
+        private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddFirmForm addFirmForm = new AddFirmForm();
+            addFirmForm.MdiParent = this;
+            addFirmForm.Show();
         }
     }
 }
