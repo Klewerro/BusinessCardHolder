@@ -53,6 +53,8 @@
     <Compile Include="Actions\FirmActions.cs" />
     <Compile Include="Actions\FirmPersonActions.cs" />
     <Compile Include="Actions\PersonActions.cs" />
+    <Compile Include="Actions\SearchEngineFirm.cs" />
+    <Compile Include="Actions\SearchEnginePerson.cs" />
     <Compile Include="BusinessCardContext.cs" />
     <Compile Include="Entities\Firm.cs" />
     <Compile Include="Entities\Person.cs" />

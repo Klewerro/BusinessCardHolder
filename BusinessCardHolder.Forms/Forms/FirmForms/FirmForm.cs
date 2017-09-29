@@ -14,6 +14,7 @@ namespace BusinessCardHolder.Forms.Forms
         private Entities.Person employee;
         private PersonActions personActions;
         private FirmPersonActions firmAndPersonActions;
+        private SearchEnginePerson searchPerson;
 
         public FirmForm()
         {
@@ -21,6 +22,7 @@ namespace BusinessCardHolder.Forms.Forms
             firmActions = new FirmActions();
             personActions = new PersonActions();
             firmAndPersonActions = new FirmPersonActions();
+            searchPerson = new SearchEnginePerson();
         }
 
         public FirmForm(Entities.Firm firmProp) : this()
@@ -324,7 +326,23 @@ namespace BusinessCardHolder.Forms.Forms
         }
 
 
+        private void dataGridView_EmployeesTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+
+
+        private void button_SearchAction_Click(object sender, EventArgs e)
+        {
+            string name = textBox_SearchName.Text;
+            string forename = textBox_SearchForename.Text;
+            string email = textBox_SearchEmail.Text;
+            string firmName = textBox_SearchFirmName.Text;
+
+            var list = searchPerson.SearchPersonAnyWord(name, forename, email, firmInCurrentForm);
+            dataGridView_EmployeesTable.DataSource = list;
+        }
 
 
 

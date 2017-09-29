@@ -92,6 +92,15 @@ namespace BusinessCardHolder
             //Console.WriteLine(firma2.Employees[0].Name);
             //Console.WriteLine(firma2.Employees.Count);
 
+            SearchEngineFirm searchEngine = new SearchEngineFirm();
+
+            //string[] s = { "Zeto", "Rzeszów", "Kopisto" };
+            string[] s = { "Kopisto", "Zeto", "Rzeszów" };
+            var list = searchEngine.SearchFirmAllWords(s);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.Name + " " + item.City + " " + item.Street);
+            }
 
 
             Console.WriteLine("Done");

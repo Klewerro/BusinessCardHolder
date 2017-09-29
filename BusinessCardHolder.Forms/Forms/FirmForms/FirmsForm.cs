@@ -1,8 +1,10 @@
 ﻿using BusinessCardHolder.Forms.Forms.Firm;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using BusinessCardHolder.Entities;
 
 namespace BusinessCardHolder.Forms.Forms
 {
@@ -10,11 +12,14 @@ namespace BusinessCardHolder.Forms.Forms
     {
         private Actions.FirmActions firmActions;
         private AddFirmForm addFirmForm;
+        private SearchEngineFirm searchFirm;
+        
 
         public FirmsForm()
         {
             InitializeComponent();
             firmActions = new Actions.FirmActions();
+            searchFirm = new SearchEngineFirm();
         }
 
         private void FirmsForm_Load(object sender, EventArgs e)
@@ -26,23 +31,20 @@ namespace BusinessCardHolder.Forms.Forms
         private void button_AddFirm_Click(object sender, EventArgs e)
         {
             addFirmForm = new AddFirmForm();
-            //addFirmForm.MdiParent = MDIParent.ActiveForm;
-            //AddFirmForm activeMdiChild = this.ActiveMdiChild as AddFirmForm;
-
+            addFirmForm.MdiParent = this.MdiParent;
             addFirmForm.Show();
         }
-        //private void addFirmForm_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    addFirmForm = null;
-        //}
+        
 
-        private void button_EditFirm_Click(object sender, EventArgs e)
+
+        public void button_EditFirm_Click(object sender, EventArgs e)
         {
             
             int currentId = GetFirmIdFromTable(0);
             Entities.Firm firm = firmActions.ReadFirm(currentId);
 
             var editFirmForm = new EditFirmForm(firm);
+            editFirmForm.MdiParent = this.MdiParent;
             editFirmForm.Show();
         }
 
@@ -87,7 +89,7 @@ namespace BusinessCardHolder.Forms.Forms
             dataGridView_Firms.DataSource = firmActions.ReadAllFirms();
         }
 
-        
+
 
         private int GetFirmIdFromTable(int columnIndex)
         {
@@ -96,7 +98,6 @@ namespace BusinessCardHolder.Forms.Forms
             try
             {
                 int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
-                //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
                 result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[columnIndex].Value.ToString());
             } catch(Exception ex)
             {
@@ -112,7 +113,6 @@ namespace BusinessCardHolder.Forms.Forms
             try
             {
                 int rowindex = dataGridView_Firms.CurrentCell.RowIndex;
-                //int columnindex = dataGridView_Firms.CurrentCell.ColumnIndex;
                 result = int.Parse(dataGridView_Firms.Rows[rowindex].Cells[0].Value.ToString());
             }
             catch (Exception ex)
@@ -137,7 +137,49 @@ namespace BusinessCardHolder.Forms.Forms
             //MessageBox.Show(GetFirmIdFromTable(dataGridView_Firms.CurrentCell.RowIndex).ToString());
             Entities.Firm firm = firmActions.ReadFirm(GetFirmIdFromTable());
             var firmForm = new FirmForm(firm);
+            firmForm.MdiParent = this.MdiParent;
             firmForm.Show();
+        }
+
+        private void button_Search_Basic_Click(object sender, EventArgs e)
+        {
+            string name = textBox_SearchName.Text;
+
+            if (checkBox_AdvancedSearch.Checked)
+            {
+                
+                string city = textBox_SearchCity.Text;
+                string street = textBox_SearchStreet.Text;
+                //string[] s = { name, city, street };
+                //var list = searchFirm.SearchFirmAllWords(s);
+                var list = searchFirm.SearchFirmAnyWord(name, city, street);
+                dataGridView_Firms.DataSource = list;
+            }
+            else
+            {
+                var list = searchFirm.SearchFirmByName(name);
+                dataGridView_Firms.DataSource = list;
+            }
+            
+        }
+
+        private void checkBox_AdvancedSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox_AdvancedSearch.Checked)
+            {
+                label_SearchCity.Visible = true;
+                label_searchStreet.Visible = true;
+                textBox_SearchCity.Visible = true;
+                textBox_SearchStreet.Visible = true;
+            }
+            else
+            {
+                label_SearchCity.Visible = false;
+                label_searchStreet.Visible = false;
+                textBox_SearchCity.Visible = false;
+                textBox_SearchStreet.Visible = false;
+            }
+            
         }
     }
 }

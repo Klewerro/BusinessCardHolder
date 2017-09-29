@@ -77,20 +77,17 @@ namespace BusinessCardHolder.Forms.Forms
         
         private void firmsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (firmsForm == null)
-            {
                 firmsForm = new FirmsForm();
                 firmsForm.MdiParent = this;
-                firmsForm.FormClosed += new FormClosedEventHandler(firmsForm_FormClosed);
+                //firmsForm.FormClosed += new FormClosedEventHandler(firmsForm_FormClosed);
                 firmsForm.Show();
-            }
-            else
-                firmsForm.Activate();   
+                
+
         }
-        private void firmsForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            firmsForm = null;
-        }
+        //private void firmsForm_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    firmsForm = null;
+        //}
 
         private void personsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -99,7 +96,13 @@ namespace BusinessCardHolder.Forms.Forms
             personsForm.Show();
         }
 
-        
+
+        private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddFirmForm addFirmForm = new AddFirmForm();
+            addFirmForm.MdiParent = this;
+            addFirmForm.Show();
+        }
     }
 }
 

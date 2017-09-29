@@ -92,10 +92,12 @@ namespace BusinessCardHolder.Actions.Tests
             //arrange
             PrepareData();
             var personActions = new PersonActions();
+            var firmActions = new FirmPersonActions();
 
             //act
             var result1 = personActions.ReadPersons();
             personActions.CreatePerson(new Person() { Forename = "ABC", Name = "DEF" });
+            firmActions.AddExistingPersonToExistingFirm("DEF", "Zeto");
             var result2 = personActions.ReadPersons();
 
             //assert

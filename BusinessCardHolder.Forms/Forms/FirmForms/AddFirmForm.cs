@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BusinessCardHolder.Forms.Forms.FirmsForm;
 
 namespace BusinessCardHolder.Forms.Forms.Firm
 {
     public partial class AddFirmForm : Form
     {
+        private object f2_FormClosed;
+
         public AddFirmForm()
         {
             InitializeComponent();
@@ -20,8 +23,8 @@ namespace BusinessCardHolder.Forms.Forms.Firm
         }
 
         private void AddFirmForm_Load(object sender, EventArgs e)
-
         {
+            
         }
 
         public void button_Add_Click(object sender, EventArgs e)
@@ -30,8 +33,11 @@ namespace BusinessCardHolder.Forms.Forms.Firm
             try
             {
                 Actions.FirmActions firm = new Actions.FirmActions();
+                
                 firm.CreateFirm(textBox_Name.Text.ToString(), textBox_City.Text.ToString(), textBox_Street.Text.ToString(), int.Parse(textBox_Number.Text), textBox_Zip.Text.ToString());
+                
                 ActiveForm.Close();
+
             }
             catch (Exception ex)
             {
@@ -53,6 +59,9 @@ namespace BusinessCardHolder.Forms.Forms.Firm
             //ActiveMdiChild.Close();
 
         }
+
+
+
 
         public void button_Cancel_Click(object sender, EventArgs e)
         {

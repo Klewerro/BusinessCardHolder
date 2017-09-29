@@ -43,9 +43,19 @@
             this.button_EditFirm = new System.Windows.Forms.Button();
             this.button_AddFirm = new System.Windows.Forms.Button();
             this.button_Nuke = new System.Windows.Forms.Button();
+            this.groupBox_Search = new System.Windows.Forms.GroupBox();
+            this.label_searchStreet = new System.Windows.Forms.Label();
+            this.label_SearchCity = new System.Windows.Forms.Label();
+            this.label_SearchName = new System.Windows.Forms.Label();
+            this.textBox_SearchStreet = new System.Windows.Forms.TextBox();
+            this.textBox_SearchCity = new System.Windows.Forms.TextBox();
+            this.checkBox_AdvancedSearch = new System.Windows.Forms.CheckBox();
+            this.button_Search_Basic = new System.Windows.Forms.Button();
+            this.textBox_SearchName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Firms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox_Search.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView_Firms
@@ -182,11 +192,102 @@
             this.button_Nuke.UseVisualStyleBackColor = true;
             this.button_Nuke.Click += new System.EventHandler(this.button_Nuke_Click);
             // 
+            // groupBox_Search
+            // 
+            this.groupBox_Search.Controls.Add(this.label_searchStreet);
+            this.groupBox_Search.Controls.Add(this.label_SearchCity);
+            this.groupBox_Search.Controls.Add(this.label_SearchName);
+            this.groupBox_Search.Controls.Add(this.textBox_SearchStreet);
+            this.groupBox_Search.Controls.Add(this.textBox_SearchCity);
+            this.groupBox_Search.Controls.Add(this.checkBox_AdvancedSearch);
+            this.groupBox_Search.Controls.Add(this.button_Search_Basic);
+            this.groupBox_Search.Controls.Add(this.textBox_SearchName);
+            this.groupBox_Search.Location = new System.Drawing.Point(12, 270);
+            this.groupBox_Search.Name = "groupBox_Search";
+            this.groupBox_Search.Size = new System.Drawing.Size(200, 193);
+            this.groupBox_Search.TabIndex = 4;
+            this.groupBox_Search.TabStop = false;
+            this.groupBox_Search.Text = "Search";
+            // 
+            // label_searchStreet
+            // 
+            this.label_searchStreet.AutoSize = true;
+            this.label_searchStreet.Location = new System.Drawing.Point(6, 120);
+            this.label_searchStreet.Name = "label_searchStreet";
+            this.label_searchStreet.Size = new System.Drawing.Size(38, 13);
+            this.label_searchStreet.TabIndex = 7;
+            this.label_searchStreet.Text = "Street:";
+            this.label_searchStreet.Visible = false;
+            // 
+            // label_SearchCity
+            // 
+            this.label_SearchCity.AutoSize = true;
+            this.label_SearchCity.Location = new System.Drawing.Point(6, 98);
+            this.label_SearchCity.Name = "label_SearchCity";
+            this.label_SearchCity.Size = new System.Drawing.Size(27, 13);
+            this.label_SearchCity.TabIndex = 6;
+            this.label_SearchCity.Text = "City:";
+            this.label_SearchCity.Visible = false;
+            // 
+            // label_SearchName
+            // 
+            this.label_SearchName.AutoSize = true;
+            this.label_SearchName.Location = new System.Drawing.Point(6, 26);
+            this.label_SearchName.Name = "label_SearchName";
+            this.label_SearchName.Size = new System.Drawing.Size(38, 13);
+            this.label_SearchName.TabIndex = 5;
+            this.label_SearchName.Text = "Name:";
+            // 
+            // textBox_SearchStreet
+            // 
+            this.textBox_SearchStreet.Location = new System.Drawing.Point(56, 117);
+            this.textBox_SearchStreet.Name = "textBox_SearchStreet";
+            this.textBox_SearchStreet.Size = new System.Drawing.Size(138, 20);
+            this.textBox_SearchStreet.TabIndex = 4;
+            this.textBox_SearchStreet.Visible = false;
+            // 
+            // textBox_SearchCity
+            // 
+            this.textBox_SearchCity.Location = new System.Drawing.Point(56, 91);
+            this.textBox_SearchCity.Name = "textBox_SearchCity";
+            this.textBox_SearchCity.Size = new System.Drawing.Size(138, 20);
+            this.textBox_SearchCity.TabIndex = 3;
+            this.textBox_SearchCity.Visible = false;
+            // 
+            // checkBox_AdvancedSearch
+            // 
+            this.checkBox_AdvancedSearch.AutoSize = true;
+            this.checkBox_AdvancedSearch.Location = new System.Drawing.Point(6, 68);
+            this.checkBox_AdvancedSearch.Name = "checkBox_AdvancedSearch";
+            this.checkBox_AdvancedSearch.Size = new System.Drawing.Size(112, 17);
+            this.checkBox_AdvancedSearch.TabIndex = 2;
+            this.checkBox_AdvancedSearch.Text = "Advanced Search";
+            this.checkBox_AdvancedSearch.UseVisualStyleBackColor = true;
+            this.checkBox_AdvancedSearch.CheckedChanged += new System.EventHandler(this.checkBox_AdvancedSearch_CheckedChanged);
+            // 
+            // button_Search_Basic
+            // 
+            this.button_Search_Basic.Location = new System.Drawing.Point(150, 42);
+            this.button_Search_Basic.Name = "button_Search_Basic";
+            this.button_Search_Basic.Size = new System.Drawing.Size(44, 23);
+            this.button_Search_Basic.TabIndex = 1;
+            this.button_Search_Basic.Text = "button1";
+            this.button_Search_Basic.UseVisualStyleBackColor = true;
+            this.button_Search_Basic.Click += new System.EventHandler(this.button_Search_Basic_Click);
+            // 
+            // textBox_SearchName
+            // 
+            this.textBox_SearchName.Location = new System.Drawing.Point(6, 42);
+            this.textBox_SearchName.Name = "textBox_SearchName";
+            this.textBox_SearchName.Size = new System.Drawing.Size(138, 20);
+            this.textBox_SearchName.TabIndex = 0;
+            // 
             // FirmsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 561);
+            this.Controls.Add(this.groupBox_Search);
             this.Controls.Add(this.button_Nuke);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView_Firms);
@@ -196,6 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Firms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firmBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox_Search.ResumeLayout(false);
+            this.groupBox_Search.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -218,5 +321,14 @@
         private System.Windows.Forms.Button button_AddFirm;
         private System.Windows.Forms.Button button_Refresh;
         private System.Windows.Forms.Button button_Nuke;
+        private System.Windows.Forms.GroupBox groupBox_Search;
+        private System.Windows.Forms.Button button_Search_Basic;
+        private System.Windows.Forms.TextBox textBox_SearchName;
+        private System.Windows.Forms.CheckBox checkBox_AdvancedSearch;
+        private System.Windows.Forms.TextBox textBox_SearchStreet;
+        private System.Windows.Forms.TextBox textBox_SearchCity;
+        private System.Windows.Forms.Label label_searchStreet;
+        private System.Windows.Forms.Label label_SearchCity;
+        private System.Windows.Forms.Label label_SearchName;
     }
 }

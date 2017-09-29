@@ -10,11 +10,13 @@ namespace BusinessCardHolder.Forms.Forms
     public partial class PersonsForm : Form
     {
         private PersonActions personActions;
+        private SearchEnginePerson searchPerson;
 
         public PersonsForm()
         {
             InitializeComponent();
             personActions = new PersonActions();
+            searchPerson = new SearchEnginePerson();
         }
 
         private void PersonsForm_Load(object sender, EventArgs e)
@@ -62,7 +64,34 @@ namespace BusinessCardHolder.Forms.Forms
 
 
             var personForm = new PersonForm(person);
+            personForm.MdiParent = this.MdiParent;
             personForm.Show();
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            if (this.Width < 1150)
+            {
+                button_Search.Text = "<< Search";
+                this.Width = 1150;
+            } 
+            else 
+            {
+                button_Search.Text = "Search >>";
+                this.Width = 910;
+            }
+                
+        }
+
+        private void button_SearchAction_Click(object sender, EventArgs e)
+        {
+            string name = textBox_SearchName.Text;
+            string forename = textBox_SearchForename.Text;
+            string email = textBox_SearchEmail.Text;
+            string firmname = textBox_SearchFirmName.Text;
+
+            var list = searchPerson.SearchPersonAnyWord(name, forename, email, firmname);
+            dataGridView_Persons.DataSource = list;
         }
     }
 }

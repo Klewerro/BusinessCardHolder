@@ -152,5 +152,17 @@ namespace BusinessCardHolder.Actions.Tests
             //assert
             Assert.IsTrue(result == true);
         }
+
+        [TestMethod]
+        public void CheckConnectionTest()
+        {
+            PrepareData();
+            using(var context = new BusinessCardContext())
+            {
+                var result = context.Database.Exists();
+
+                Assert.IsTrue(result);
+            }
+        }
     }
 }
